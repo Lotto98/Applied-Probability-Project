@@ -1,0 +1,46 @@
+---
+title: "Michele_Lotto_Exercises"
+author: "Michele Lotto"
+date: "2022-11-26"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(tinytex.verbose = TRUE)
+```
+
+# Michele Lotto Exercises
+
+4) 3.21
+8) 5.22
+
+## List 4 - Exercise 3.21
+If A flips $n + 1$ and B flips $n$ fair coins, show that the
+probability that A gets more heads than B is $\frac{1}{2}$.
+
+Hint: Condition on which player has more heads after each
+has flipped n coins. (There are three possibilities.)
+
+### Solution
+
+## List 8 - Exercise 5.22
+Let U be a uniform $(0, 1)$ random variable, and let
+$a < b$ be constants.
+
+(a) Show that if $b > 0$, then $bU$ is uniformly distributed
+on $(0, b)$, and if $b < 0$, then $bU$ is uniformly distributed on
+$(b, 0)$.
+
+(b) Show that $a + U$ is uniformly distributed on $(a, 1 + a)$.
+
+(c) What function of $U$ is uniformly distributed on $(a, b)$?
+
+(d) Show that $min(U, 1 - U)$ is a uniform $(0, 1/2)$ random
+variable.
+
+(e) Show that $max(U, 1 - U)$ is a uniform $(1/2, 1)$ random
+variable.
+
+### Solution
+
