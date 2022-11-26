@@ -182,7 +182,7 @@ f_Y(y) =
 $$
 which in turn is a $U(0,\frac{1}{2})$ by definition.
 
-c ) We have to find which function $f(x)$ such that $f(U) \sim U(a,b)$
+c ) We have to find the function $f(.)$ such that $f(U) \sim U(a,b)$
 
 Let $Y \sim U(a,b)$ with CDF:
 $$
@@ -193,14 +193,16 @@ f_Y(y) =
 1, & y>b
 \end{cases}
 $$
-Given that $p=\frac{y-a}{b-a}$ is a probability, we know that $p$ takes values between 0 and 1. $p$ can be seen as a Standard Uniform ($p=U$). distribution.
+Given that $p=\frac{y-a}{b-a}$ is a probability, we know that $p$ takes values between 0 and 1. $p$ can be seen as a Standard Uniform distribution ($p=U$).
+
+Indeed, we calculate $y=f^{-1}_Y(p)$:
 
 $$
-U=\frac{y-a}{b-a} \Rightarrow
-U \times (b-a)=y-a \Rightarrow
-U \times (b-a)+a=y
+p=\frac{y-a}{b-a} \Rightarrow
+p \times (b-a)=y-a \Rightarrow
+p \times (b-a)+a=y
 $$
-The function is that transform a Standard Uniform in a $U(a,b)$ is indeed $f(U)=U \times (b-a)+a$
+The function that transforms a Standard Uniform in a $U(a,b)$ is indeed $f(U)=U \times (b-a)+a$
 
 
 e ) We have to prove that $Y=max(U,1-U) \sim U(\frac{1}{2},1)$
