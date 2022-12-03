@@ -206,6 +206,70 @@ has flipped n coins. (There are three possibilities.)
 
 ## \underline{Solution}
 
+Let's define 3 events:
+
+1) $A_{n+1}=$ "the number of heads of A in $n+1$ flips"
+
+2) $A_{n}=$ "the number of heads of A in $n$ flips"
+
+3) $B_{n}=$ "the number of heads of B in $n$ flips"
+
+We want to prove that:
+$$
+\mathbb{P}(A_{n+1}>B_{n})=\frac{1}{2}
+$$
+After $n$ flips there are $3$ possibilities (events):
+
+1) A has more heads than B: $A_{n}>B_{n}$
+
+2) A has the same number of heads of B: $A_{n}=B_{n}$
+
+3) A has less heads than B: $A_{n}<B_{n}$
+
+These 3 events are mutually exclusive (only one of them can occur),
+then:
+
+$$\mathbb{P}(A_{n}>B_{n})+\mathbb{P}(A_{n}=B_{n})+\mathbb{P}(A_{n}<B_{n})=1$$.
+
+Therefore we can write $\mathbb{P}(A_{n+1}>B_{n})$ using the law of total probability:
+
+$$
+\begin{aligned}
+\mathbb{P}(A_{n+1}>B_{n})&=\mathbb{P}(A_{n+1}>B_{n}|A_{n}>B_{n})\mathbb{P}(A_{n}>B_{n}) \\
+&+\mathbb{P}(A_{n+1}>B_{n}|A_{n}=B_{n})\mathbb{P}(A_{n}=B_{n}) \\
+&+\mathbb{P}(A_{n+1}>B_{n}|A_{n}<B_{n})\mathbb{P}(A_{n}<B_{n})
+\end{aligned}
+$$
+Now let's analyse each conditional probability:
+
+1) $\mathbb{P}(A_{n+1}>B_{n}|A_{n}>B_{n})=1$: If A has more heads than B in n flips it is obvious that in the next flip A has still more heads than B (B does not flip).
+
+2) $\mathbb{P}(A_{n+1}>B_{n}|A_{n}=B_{n})=\frac{1}{2}$: If A has the same number of heads of B in n flips, indeed the number of A's heads depends only on the next flip: $\mathbb{P}("head")$ from a fair coin is equal to $\frac{1}{2}$.
+
+3) $\mathbb{P}(A_{n+1}>B_{n}|A_{n}<B_{n})=0$: If A has less heads than B in n flips it is obvious that in the next flip A has still less heads than B (if A has only an head less than B, in the next flip A can have the same number of heads than B or still less heads, but never more heads than B).
+
+
+Therefore we can write $\mathbb{P}(A_{n+1}>B_{n})$ as follows:
+$$
+\begin{aligned}
+\mathbb{P}(A_{n+1}>B_{n})&= 1 \cdot \mathbb{P}(A_{n}>B_{n})+\frac{1}{2} \cdot \mathbb{P}(A_{n}=B_{n})+0 \cdot \mathbb{P}(A_{n}<B_{n}) \\
+&=\frac{1}{2} \cdot (2 \cdot \mathbb{P}(A_{n}>B_{n})+\mathbb{P}(A_{n}=B_{n}))
+\end{aligned}
+$$
+We need to prove that $2 \cdot \mathbb{P}(A_{n}>B_{n})+\mathbb{P}(A_{n}=B_{n})=1$.
+
+We can simply observe that $\mathbb{P}(A_{n}>B_{n})=\mathbb{P}(A_{n}<B_{n})$ because in n flips both players have the same probability of getting more heads than the other; therefore we can write $2 \cdot \mathbb{P}(A_{n}>B_{n})+\mathbb{P}(A_{n}=B_{n})$ as $\mathbb{P}(A_{n}>B_{n})+\mathbb{P}(A_{n}=B_{n})+\mathbb{P}(A_{n}<B_{n})$.
+
+We know that $\mathbb{P}(A_{n}>B_{n})+\mathbb{P}(A_{n}=B_{n})+\mathbb{P}(A_{n}<B_{n})=1$ given that the 3 events are mutually exclusive, so:
+$$
+\begin{aligned}
+\mathbb{P}(A_{n+1}>B_{n})&=\frac{1}{2} \cdot (2 \cdot \mathbb{P}(A_{n}>B_{n})+\mathbb{P}(A_{n}=B_{n})) \\
+&=\frac{1}{2} \cdot (\mathbb{P}(A_{n}>B_{n})+\mathbb{P}(A_{n}=B_{n})+\mathbb{P}(A_{n}<B_{n})) \\
+&=\frac{1}{2}
+\end{aligned}
+$$
+This is what we had to prove.
+
 # List 5 - Exercise 4.1
 
 Two balls are chosen randomly from an urn containing 8 white, 4 black, and 2 orange balls. Suppose that we win 2 dollars for each black ball selected and we lose 1 dollar for each white ball selected. Let X denote our winnings. What are the possible values of X, and what are the probabilities associated with each value?
