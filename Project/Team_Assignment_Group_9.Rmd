@@ -1,6 +1,6 @@
 ---
 title: "Team 9 Assignment Exercises"
-author: "Zuliani Riccardo 875532 - Aggio Nicola 880008 - Lotto Michele 875922 - Gideon Owusu"
+author: "Zuliani Riccardo 875532 - Aggio Nicola 880008 - Lotto Michele 875922"
 date: "14/11/2022"
 output: 
   pdf_document:
@@ -12,19 +12,6 @@ knitr::opts_chunk$set(echo = TRUE)
 options(tinytex.verbose = TRUE)
 library("knitr")
 ```
-
-
-1) 13---R OK
-2) 10------G OK
-3) 3.38--------N OK
-4) 3.21------------M Kinda
-5) 4.1--R OK
-6) 4.11----G
-7) 5.16--------N OK	
-8) 5.22------------M OK
-9) 6.22-R	OK
-10) 6.1----G	
-11) 7.19-------N OK
 
 
 # List 1 - Exercise 13
@@ -603,10 +590,10 @@ c) Find \(P\{X + Y < 1\}\)
 ## \underline{Solution}
 
 a) The joint density function is given, so in order to find if \(X\) and \(Y\) are independent firstly we have to find the two marginal distribution: \(f_{X}(x,y)\) and \(f_{Y}(x,y)\) and then verify if the multiplication of the two gives us the \(f_{X,Y}(x,y)\). If this holds we conclude saying X and Y are independent. Let's find out:
-\[f_{X}(x,y) = \int_a^b f_{X,Y}(x,y) \,dy = \int_0^1 (x + y) \,dy = \Bigg[xy + \frac{y^2}{2}\Bigg]_0^2 = \Bigg(x + \frac{1}{2} \Bigg)\]
-\[f_{Y}(x,y) = \int_a^b f_{X,Y}(x,y) \,dx = \int_0^1 (x + y) \,dx = \Bigg[xy + \frac{x^2}{2}\Bigg]_0^2 = \Bigg(y + \frac{1}{2} \Bigg)\]
+\[f_{X}(x,y) = \int_a^b f_{X,Y}(x,y) \,dy = \int_0^1 (x + y) \,dy = \Bigg[xy + \frac{y^2}{2}\Bigg]_0^1 = \Bigg(x + \frac{1}{2} \Bigg)\]
+\[f_{Y}(x,y) = \int_a^b f_{X,Y}(x,y) \,dx = \int_0^1 (x + y) \,dx = \Bigg[xy + \frac{x^2}{2}\Bigg]_0^1 = \Bigg(y + \frac{1}{2} \Bigg)\]
 And
-\[f_{X}(x,y) \times f_{Y}(x,y) = \Bigg(x + \frac{1}{2} \Bigg) \times \Bigg(y + \frac{1}{2} \Bigg) = \frac{4xy + 2x +y +1}{4} \neq f_{X,Y}(x,y)\]
+\[f_{X}(x,y) \times f_{Y}(x,y) = \Bigg(x + \frac{1}{2} \Bigg) \cdot \Bigg(y + \frac{1}{2} \Bigg) = \frac{4xy + 2x +y +1}{4} \neq f_{X,Y}(x,y)\]
 Thus \(X\) and \(Y\) are not independent.
 
 b) From the previous point we remark the the result of density function of \(X\), which is \(f_{X}(x,y)\) is equal to:
@@ -629,8 +616,59 @@ Knowing that now we can find the required probability:
 
 # List 10 - Exercise 6.1
 
-## \underline{Solution}
+Each throw of an unfair die lands on each of the odd numbers 1, 3, 5 with probability C and on each of the even numbers with probability 2C.
 
+a) Find C.
+b) Suppose that the die is tossed. Let X equal 1 if the result is an even number, and let it be 0 otherwise. Also, let Y equal 1 if the result is a number greater than three and let it be 0 otherwise. Find the joint probability mass function of X and Y. Suppose now that 12 independent tosses of the die are made.
+c) Find the probability that each of the six outcomes occurs exactly twice.
+d) Find the probability that 4 of the outcomes are either one or two, 4 are either three or four, and 4 are either five or six.
+e) Find the probability that at least 8 of the tosses land on even numbers.
+
+## \underline{Solution}
+Let $D$ be the event that represents the result of the tossing, then $D = \{1,2,3,4,5,6\}$.
+
+a) In order to find C, we must set the condition $3(C + 2C) = 1$, from which we derive $C = \frac{1}{9}$.
+
+b) The joint pdf of X and Y is given by:
+
+* $P[X = 0, Y = 0] = P[\text{result is odd and less or equal than 3}] = P[D = 1] + P[D = 3] = \frac{2}{9}$
+
+* $P[X = 0, Y = 1] = P[\text{result is odd and greather than 3}] = P[D = 5] = \frac{1}{9}$
+
+* $P[X = 1, Y = 0] = P[\text{result is even and less or equal than 3}] = P[D = 2] = \frac{2}{9}$
+
+* $P[X = 1, Y = 1] = P[\text{result is even and greather than 3}] = P[D = 4] + P[D = 6] = \frac{4}{9}$
+
+We can represent the joint pdf in the following table:
+
+$$
+\begin{tabular}{|c|c|c|c|c|} 
+ \hline
+ \multicolumn{2}{|c|}{\multirow{2}{*}{\(P(x,y)\)}} & \multicolumn{2}{c|}{X} & \multirow{2}{*}{\(P_Y(x,y)\)}\\ \cline{3-4}
+ \multicolumn{2}{|c|}{} & 0 & 1 & \\ \hline
+ \multirow{2}{*}{Y} & 0 & 2/9 & 2/9 & 4/9 \\ \cline{2-5}
+ & 1 & 1/9 & 4/9 & 5/9 \\ \hline
+\multicolumn{2}{|c|} {\(P_X(x,y)\)} & 3/9 & 6/9 & 9/9 \\ \hline
+\end{tabular}
+$$
+
+c) The total ways of getting two ones, two twos etc.. can be calculated using the permutations with repetition formula: $P_{12}^{2,2,..,2} = \frac{12!}{(2!)^6} = \frac{12!}{2^6}$. Then, in order to answer the question we must multiply this quantity by the probabilities, so we get:
+
+$$
+P[\text{each outcome exactly twice}] = \frac{12!}{2^6} \cdot (\frac{1}{3})^6 \cdot (\frac{2}{3})^6 
+$$
+
+d) We first calculate the probability of getting an even number or an odd number: $P[\text{even or odd}] = P[\text{even}] + P[\text{odd}] = \frac{2}{9} + \frac{1}{9} = \frac{1}{3}$. Then, using the permutations with repetition we calculate the total number of ways of getting 4 outcomes with either one or two, 4 outcomes with either three or four and 4 outcomes with either five or six: $P_{12}^{4,4,4} = \frac{12!}{4! 4!4!}$. Finally, we multiply the probabilities:
+
+$$
+p = \frac{12!}{4! 4!4!} \cdot (\frac{1}{3})^{12}
+$$
+
+e) The probability of getting an even number is given by $p = \frac{2}{3}$. Let $X$ be a random variable that counts the number of even number from 12 throws, then $X \sim Bin(12, p)$. In order to answer the question we must calculate:
+
+$$
+P[X \geq 8] = pbinom(7, 12, \frac{2}{3}, lower.tail = FALSE)= 0.6315
+$$
 
 # List 11 - Exercise 7.19
 
@@ -667,30 +705,4 @@ Then, $X = \sum \limits_{i = 2}^r Y_i$ represents the number of types of insects
 
 $$
 E[X] = E[\sum \limits_{i = 2}^r Y_i] = \sum \limits_{i = 2}^r E[Y_i] = \sum \limits_{i = 2}^r P[Y_i = 1] = \sum \limits_{i = 2}^r \frac{P_i}{P_1 + P_i} 
-$$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$$
-\begin{tabular}{|c|c|c|c|c|} 
- \hline
- \multicolumn{2}{|c|}{\multirow{2}{*}{\(P(x,y)\)}} & \multicolumn{2}{c|}{X} & \multirow{2}{*}{\(P_Y(x,y)\)}\\ \cline{3-4}
- \multicolumn{2}{|c|}{} & 0 & 1 & \\ \hline
- \multirow{2}{*}{Y} & 0 & 2/9 & 2/9 & 4/9 \\ \cline{2-5}
- & 1 & 1/9 & 4/8 & 5/9 \\ \hline
-\multicolumn{2}{|c|} {\(P_X(x,y)\)} & 3/9 & 6/9 & 9/9 \\ \hline
-\end{tabular}
 $$
