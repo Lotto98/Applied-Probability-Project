@@ -380,7 +380,7 @@ x, & x \in [0,1] \\
 \end{cases}
 $$
 
-a.1 ) We have to prove that if $b>0$ then $Y=bU \sim U(0,b)$
+a.1) We have to prove that if $b>0$ then $Y=bU \sim U(0,b)$
 
 First we calculate the interval extremes:
 
@@ -402,7 +402,7 @@ f_Y(y) =
 $$
 which in turn is a $U(0,b)$ by definition.
 
-a.2 ) We have to prove that if $b<0$ then $Y=bU \sim U(b,0)$
+a.2) We have to prove that if $b<0$ then $Y=bU \sim U(b,0)$
 
 First we calculate the interval extremes:
 
@@ -424,7 +424,7 @@ f_Y(y) =
 $$
 which in turn is a $U(b,0)$ by definition.
 
-b ) We have to prove that $Y=a+U \sim U(a,1+a)$
+b) We have to prove that $Y=a+U \sim U(a,1+a)$
 
 First we calculate the interval extremes:
 
@@ -446,16 +446,14 @@ f_Y(y) =
 $$
 which in turn is a $U(a,1+a)$ by definition.
 
-d ) We have to prove that $Y=min(U,1-U) \sim U(0,1/2)$
+d) We have to prove that $Y=min(U,1-U) \sim U(0,1/2)$
 
 We distinguish two cases:
 
 1) if $U \ge \frac{1}{2}$ then the min is $Y=1-U$
 2) if $U \le \frac{1}{2}$ then the min is $Y=U$
 
-1 )
-
-First we calculate the interval extremes:
+1) First we calculate the interval extremes:
 
 * if $U=\frac{1}{2}$ then $Y=\frac{1}{2}$
 
@@ -475,9 +473,7 @@ f_Y(y) =
 $$
 which in turn is a $U(0,\frac{1}{2})$ by definition.
 
-2 )
-
-First we calculate the interval extremes:
+2) First we calculate the interval extremes:
 
 * if $U=0$ then $Y=0$
 
@@ -497,7 +493,7 @@ f_Y(y) =
 $$
 which in turn is a $U(0,\frac{1}{2})$ by definition.
 
-c ) We have to find the function $f(.)$ such that $f(U) \sim U(a,b)$
+c) We have to find the function $f(.)$ such that $f(U) \sim U(a,b)$
 
 Let $Y \sim U(a,b)$ with CDF:
 $$
@@ -520,16 +516,14 @@ $$
 The function that transforms a Standard Uniform in a $U(a,b)$ is indeed $f(U)=U \times (b-a)+a$
 
 
-e ) We have to prove that $Y=max(U,1-U) \sim U(\frac{1}{2},1)$
+e) We have to prove that $Y=max(U,1-U) \sim U(\frac{1}{2},1)$
 
 We distinguish two cases:
 
 1) if $U \ge \frac{1}{2}$ then the max is $Y=U$
 2) if $U \le \frac{1}{2}$ then the max is $Y=1-U$
 
-1 )
-
-First we calculate the interval extremes:
+1) First we calculate the interval extremes:
 
 * if $U=1$ then $Y=1$
 
@@ -549,9 +543,7 @@ f_Y(y) =
 $$
 which in turn is a $U(\frac{1}{2},1)$ by definition.
 
-2 )
-
-First we calculate the interval extremes:
+2) First we calculate the interval extremes:
 
 * if $U=0$ then $Y=1$
 
