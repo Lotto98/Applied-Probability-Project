@@ -4,7 +4,7 @@ author: "Zuliani Riccardo 875532 - Aggio Nicola 880008 - Lotto Michele 875922 - 
 date: "14/11/2022"
 output: 
   pdf_document:
-    extra_dependencies: ["bbm", "threeparttable", "amsmath", "cases", "mathtools", "pdflscape"]
+    extra_dependencies: ["bbm", "threeparttable", "amsmath", "cases", "mathtools", "pdflscape", "multirow"]
 ---
 
 ```{r setup, include=FALSE}
@@ -237,13 +237,15 @@ The the probability to obtain the previous event choosing two balls randomly fro
 
 
 We can summarize the probability distribution function with the following table:
-```{r echo=FALSE}
-tab <- matrix(c(0.3076923, 0.1758242, 0.01098901, 0.3516484, 0.08791209, 0.06593407), ncol=6, byrow=TRUE)
-colnames(tab) <- c('-2','-1','0','1','2','4')
-rownames(tab) <- c('P[X = x]')
-tab <- as.table(tab)
-knitr::kable( tab, "simple" )
-```
+$$
+\begin{tabular}{c c c c c c c} 
+ \hline
+ x & -2 & -1 & 0 & 1 & 2 & 4 \\
+ \hline\hline
+ P[X = x] & 0.3076923 & 0.1758242 & 0.01098901 & 0.3516484 & 0.08791209 & 0.06593407\\
+ \hline
+\end{tabular}
+$$
 
 
 # List 6 - Exercise 4.11
@@ -649,3 +651,28 @@ $$
 E[X] = E[\sum \limits_{i = 2}^r Y_i] = \sum \limits_{i = 2}^r E[Y_i] = \sum \limits_{i = 2}^r P[Y_i = 1] = \sum \limits_{i = 2}^r \frac{P_i}{P_1 + P_i} 
 $$
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$$
+\begin{tabular}{|c|c|c|c|c|} 
+ \hline
+ \multicolumn{2}{|c|}{\multirow{2}{*}{\(P(x,y)\)}} & \multicolumn{2}{c|}{X} & \multirow{2}{*}{\(P_Y(x,y)\)}\\ \cline{3-4}
+ \multicolumn{2}{|c|}{} & 0 & 1 & \\ \hline
+ \multirow{2}{*}{Y} & 0 & 2/9 & 2/9 & 4/9 \\ \cline{2-5}
+ & 1 & 1/9 & 4/8 & 5/9 \\ \hline
+\multicolumn{2}{|c|} {\(P_X(x,y)\)} & 3/9 & 6/9 & 9/9 \\ \hline
+\end{tabular}
+$$
