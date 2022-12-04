@@ -691,11 +691,11 @@ We can represent the joint pdf in the following table:
 $$
 \begin{tabular}{|c|c|c|c|c|} 
  \hline
- \multicolumn{2}{|c|}{\multirow{2}{*}{\(P(x,y)\)}} & \multicolumn{2}{c|}{X} & \multirow{2}{*}{\(P_Y(x,y)\)}\\ \cline{3-4}
+ \multicolumn{2}{|c|}{\multirow{2}{*}{\(P(x,y)\)}} & \multicolumn{2}{c|}{X} & \multirow{2}{*}{\(P_Y(y)\)}\\ \cline{3-4}
  \multicolumn{2}{|c|}{} & 0 & 1 & \\ \hline
  \multirow{2}{*}{Y} & 0 & 2/9 & 2/9 & 4/9 \\ \cline{2-5}
  & 1 & 1/9 & 4/9 & 5/9 \\ \hline
-\multicolumn{2}{|c|} {\(P_X(x,y)\)} & 3/9 & 6/9 & 9/9 \\ \hline
+\multicolumn{2}{|c|} {\(P_X(x)\)} & 3/9 & 6/9 & 9/9 \\ \hline
 \end{tabular}
 $$
 
