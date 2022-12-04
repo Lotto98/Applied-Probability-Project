@@ -719,9 +719,9 @@ $$
 
 # List 11 - Exercise 7.19
 
-A certain region is inhabited by r distinct types of a
+A certain region is inhabited by $r$ distinct types of a
 certain species of insect. Each insect caught will, independently
-of the types of the previous catches, be of type i with
+of the types of the previous catches, be of type $i$ with
 probability:
 $$
 P_i, i = 1,...,r \space \space \space \sum_i^r P_i = 1 
