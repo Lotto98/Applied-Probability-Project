@@ -147,8 +147,6 @@ e) This point is similar to the point "c" except the case that we have to exclud
 
 Finally the number of people who read only one morning paper and one evening paper is \(\mathbb{P}[E] \times 100000 = 0.1 \times 100000 = 10000\).
 
-
-
 # List 2 - Exercise 10
 
 Consider an experiment that consists of 6 horses, numbered 1 through 6, running a race, and suppose that the sample space consists of the 6! possible orders in which the horses finish. Let:
@@ -165,11 +163,11 @@ How many outcomes are in the event \(A \cup B\)?
 Let's firstly solve separately each component of the union:
 
 * \(\#A\) is equal to all the possible combination of horses with the number-1 fixed in the first, second and third position, thus:
-\[factorial(6-1) \times 3 = 360\]
+\[(6-1)! \times 3 = 360\]
 * \(\#B\) is equal to all possible combination of horses with the number-2 fixed in the second position, thus:
-\[factorial(6-1) = 120\]
+\[(6-1)! = 120\]
 * \(\#(A \cap B)\) is equal to all the possible combination of horses with the number-2 fixed in the second position and the number-1 that can take the first or third position, thus:
-\[factorial(6-2) \times 2 = 48\]
+\[(6-2)! \times 2 = 48\]
 
 We conclude saying that the outcomes are in the event \(A \cup B\) is equal to:
 \[\#(A \cup B) = \#A + \#B - \#(A \cap B) = 360 + 120 - 48 = 432\]
