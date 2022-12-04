@@ -51,11 +51,8 @@ Moreover to better explain the solution we rewrite in mathematical language all 
 \[\mathbb{P}[I] = 0.1 \quad \mathbb{P}[II] = 0.3 \quad \mathbb{P}[III] = 0.05\]
 \[\mathbb{P}[I \cap II] = 0.08 \quad \mathbb{P}[I \cap III] = 0.02 \quad \mathbb{P}[II \cap III] = 0.04 \quad \mathbb{P}[I \cap II \cap III] = 0.01 \quad\]
 
-<!--And finally we draw a picture in order to have a visual understanding of the subdivision of all probabilities:-->
 And finally we draw a picture in order to have a visual understanding of the subdivision of all the events:
-```{r  out.width = "40%", echo = FALSE, fig.align = "center"}
-#include_graphics("List 1 - 13.png") 
-```
+
 
 \begin{center}
 \begin{tikzpicture}
@@ -385,7 +382,7 @@ The annual rainfall (in inches) in a certain region is normally distributed with
 The annual rainfall is described by the random variable $X \sim N(\mu, \sigma^2)$, so $X \sim N(40, 4^2)$. In order to answer the first question, we first calculate the probability that an annual rainfall exceeds 50 inches:
 
 $$
-P[X > 50] = P[Z > \frac{50 - \mu}{\sigma}] = P[Z > 2.5] = \text{pnorm(2.5, lower.tail = FALSE)} = 0.0062
+\mathbb{P}[X > 50] = \mathbb{P}\Bigg[Z > \frac{50 - \mu}{\sigma}\Bigg] = P[Z > 2.5] = \text{pnorm(2.5, lower.tail = FALSE)} = 0.0062
 $$
 
 Then, we can model the number of years before a year with rainfall exceeding 50 inches with the variable $Y \sim Geom(p)$, where $p$ is the probability of success, in this case $p = 0.0062$. Finally, we can answer the question of the problem by calculating
@@ -702,13 +699,13 @@ $$
 c) The total ways of getting two ones, two twos etc.. can be calculated using the permutations with repetition formula: $P_{12}^{2,2,..,2} = \frac{12!}{(2!)^6} = \frac{12!}{2^6}$. Then, in order to answer the question we must multiply this quantity by the probabilities, so we get:
 
 $$
-P[\text{each outcome exactly twice}] = \frac{12!}{2^6} \cdot (\frac{1}{3})^6 \cdot (\frac{2}{3})^6 
+P[\text{each outcome exactly twice}] = \frac{12!}{2^6} \cdot \bigg(\frac{1}{3}\bigg)^6 \cdot \bigg(\frac{2}{3}\bigg)^6 
 $$
 
 d) We first calculate the probability of getting an even number or an odd number: $P[\text{even or odd}] = P[\text{even}] + P[\text{odd}] = \frac{2}{9} + \frac{1}{9} = \frac{1}{3}$. Then, using the permutations with repetition we calculate the total number of ways of getting 4 outcomes with either one or two, 4 outcomes with either three or four and 4 outcomes with either five or six: $P_{12}^{4,4,4} = \frac{12!}{4! 4!4!}$. Finally, we multiply the probabilities:
 
 $$
-p = \frac{12!}{4! 4!4!} \cdot (\frac{1}{3})^{12}
+p = \frac{12!}{4! 4!4!} \cdot \bigg(\frac{1}{3}\bigg)^{12}
 $$
 
 e) The probability of getting an even number is given by $p = \frac{2}{3}$. Let $X$ be a random variable that counts the number of even number from 12 throws, then $X \sim Bin(12, p)$. In order to answer the question we must calculate:
