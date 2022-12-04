@@ -51,7 +51,8 @@ Moreover to better explain the solution we rewrite in mathematical language all 
 \[\mathbb{P}[I] = 0.1 \quad \mathbb{P}[II] = 0.3 \quad \mathbb{P}[III] = 0.05\]
 \[\mathbb{P}[I \cap II] = 0.08 \quad \mathbb{P}[I \cap III] = 0.02 \quad \mathbb{P}[II \cap III] = 0.04 \quad \mathbb{P}[I \cap II \cap III] = 0.01 \quad\]
 
-And finally we draw a picture i in order to have a visual understanding of the subdivision of all probabilities:
+<!--And finally we draw a picture in order to have a visual understanding of the subdivision of all probabilities:-->
+And finally we draw a picture in order to have a visual understanding of the subdivision of all the events:
 ```{r  out.width = "40%", echo = FALSE, fig.align = "center"}
 #include_graphics("List 1 - 13.png") 
 ```
@@ -70,8 +71,6 @@ And finally we draw a picture i in order to have a visual understanding of the s
 \end{tikzpicture}  
 \end{center}
 
-
-
 a) To solve the first point we define three additional sub-events of event A:
 * \(A_{I} = \)\{\text{People who read only the newspaper }I\}
 * \(A_{II} = \)\{\text{People who read only the newspaper }II\}
@@ -85,7 +84,7 @@ Indeed the \(\mathbb{P}[A]\) is nothing else that the sum of \(\mathbb{P}[A_I] +
 Similarly for the other two sub-events we have:
 
 \[\mathbb{P}[A_{II}] = \mathbb{P}[II] - \mathbb{P}[II \cap I] - \mathbb{P}[II \cap III] + \mathbb{P}[I \cap II \cap III]\]
-\[\mathbb{P}[A_{II}] = 0.3 - 0.08 - 0.02 + 0.04 = 0.24\]
+\[\mathbb{P}[A_{II}] = 0.3 - 0.08 - 0.04 + 0.01 = 0.19\]
 
 \[\mathbb{P}[A_{III}] = \mathbb{P}[III] - \mathbb{P}[III \cap I] - \mathbb{P}[III \cap II] + \mathbb{P}[I \cap II \cap III]\]
 \[\mathbb{P}[A_{III}] = 0.05 - 0.02 - 0.04 + 0.01 = 0.00\]
@@ -93,15 +92,15 @@ Similarly for the other two sub-events we have:
 Thus we obtain that:
 
 \[\mathbb{P}[A] = \mathbb{P}[A_I] + \mathbb{P}[A_{II}] + \mathbb{P}[A_{III}]\]
-\[\mathbb{P}[A] = 0.01 + 0.24 + 0.00 = 0.25\]
+\[\mathbb{P}[A] = 0.01 + 0.19 + 0.00 = 0.20\]
 
-Finally the number of people who read only one newspaper is \(\mathbb{P}[A] \times 100000 = 0.25 \times 100000 = 25000\)
+Finally the number of people who read only one newspaper is \(\mathbb{P}[A] \times 100000 = 0.20 \times 100000 = 20000\).
 
 b) In order to solve the second point we look again at the drawn figure and we see that again we have all what we need. Indeed we want to take into account all the intersection of people that read **at least** two newspaper and since each intersection consider two times the intersection of all of three newspaper we have to subtract that amount. Moreover as the previous point we introduce again three sub-events, so let:
-* \(B_{I \cap II \cap III^c} = \)\{\text{People who read the newspaper }I \text{ and }II \text{ but not }III\}
-* \(B_{I^c \cap II \cap III} = \)\{\text{People who read at least the newspaper }II \text{ and }III \text{ but not }I\}
-* \(B_{I \cap II^c \cap III} = \)\{\text{People who read at least the newspaper }III \text{ and }I\text{ but not }II\}
-* \(B_{I \cap II \cap III} = \)\{\text{People who read at least the newspaper }I \text{, }II \text{ and }III\}
+* \(B_{I \cap II \cap III^c} = \)\{\text{People who read the newspaper }I\text{ and }II\text{ but not }III\}
+* \(B_{I^c \cap II \cap III} = \)\{\text{People who read the newspaper }II\text{ and }III\text{ but not }I\}
+* \(B_{I \cap II^c \cap III} = \)\{\text{People who read the newspaper }III\text{ and }I\text{ but not }II\}
+* \(B_{I \cap II \cap III} = \)\{\text{People who read the newspaper }I\text{, }II\text{ and }III\}
 
 Thus
 \[\mathbb{P}[B] = \mathbb{P}[B_{I \cap II \cap III^c}] + \mathbb{P}[B_{I^c \cap II \cap III}] + \mathbb{P}[B_{I \cap II^c \cap III}] + \mathbb{P}B_{I \cap II \cap III}]\]
@@ -121,16 +120,16 @@ Thus
 So
 \[\mathbb{P}[B] = 0.07 + 0.03 + 0.01 + 0.01 = 0.12\]
 
-Finally the number of people who read at least two newspaper is \(\mathbb{P}[B] \times 100000 = 0.12 \times 100000 = 12000\)
+Finally the number of people who read at least two newspaper is \(\mathbb{P}[B] \times 100000 = 0.12 \times 100000 = 12000\).
 
 
 c) In this point we to retrieve how many people read at least one morning paper plus an evening paper, thus all of this can be re-write into the probability to read one of the morning newspaper **or** both, **and** the evening newspaper. More formally we want to obtain:
-\[
-\mathbb{P}[C] = \mathbb{P}[(I \cup III) \cap II] = (\mathbb{P}[I] + \mathbb{P}[III] - \mathbb{P}[I \cap III]) \cap \mathbb{P}[II]\]
+<!--\[\mathbb{P}[C] = \mathbb{P}[(I \cup III) \cap II] = (\mathbb{P}[I] + \mathbb{P}[III] - \mathbb{P}[I \cap III]) \cap \mathbb{P}[II]\]-->
+\[\mathbb{P}[C] = \mathbb{P}[(I \cup III) \cap II] = (\mathbb{P}[I] + \mathbb{P}[III] - \mathbb{P}[I \cap III]) \cdot \mathbb{P}[II]\]
 \[= \mathbb{P}[I \cap II] + \mathbb{P}[III \cap II] - \mathbb{P}[I \cap II \cap III]\]
 \[= 0.08 + 0.04 - 0.01 = 0.11
 \]
-Finally the number of people who read read at least one morning paper plus an evening paper is \(\mathbb{P}[C] \times 100000 = 0.11 \times 100000 = 11000\)
+Finally the number of people who read read at least one morning paper plus an evening paper is \(\mathbb{P}[C] \times 100000 = 0.11 \times 100000 = 11000\).
 
 d) The \(\mathbb{P}[D]\) can be rewritten into \(1 - \mathbb{P}[I \cup II \cup III]\), thus:
 \[
@@ -138,7 +137,7 @@ d) The \(\mathbb{P}[D]\) can be rewritten into \(1 - \mathbb{P}[I \cup II \cup I
 \[= 1 - \Big(\mathbb{P}[I] + \mathbb{P}[II] + \mathbb{P}[III] - \mathbb{P}[I \cap II] - \mathbb{P}[II \cap III] - \mathbb{P}[III \cap I] + \mathbb{P}[I \cap II \cap III] \Big)\]
 \[= 1 - \Big(0.1 + 0.3 + 0.05 - 0.08 - 0.04 - 0.02 + 0.01 \Big) = 0.68
 \]
-Thus the number of people who do not read any newspaper is \(\mathbb{P}[D] \times 100000 = 0.68 \times 100000 = 68000\)
+Thus the number of people who do not read any newspaper is \(\mathbb{P}[D] \times 100000 = 0.68 \times 100000 = 68000\).
 
 e) This point is similar to the point "c" except the case that we have to exclude the intersection between the two morning newspaper. More formally:
 \[\mathbb{P}[C] = \mathbb{P}\Big[\Big((I - III) \cup (III - I)\Big) \cap II\Big] = \mathbb{P}\Big[\Big((I \cap III^c) \cup (III \cap I^c)\Big) \cap II\Big]\]
@@ -146,7 +145,7 @@ e) This point is similar to the point "c" except the case that we have to exclud
 \[= \mathbb{P}[I \cap II] + \mathbb{P}[II \cap III] -2\mathbb{P}[I \cap II \cap III]\]
 \[= 0.08 + 0.04 - 2 \times 0.01 = 0.1\]
 
-Finally the number of people who read only one morning paper and one evening paper is \(\mathbb{P}[E] \times 100000 = 0.1 \times 100000 = 10000\)
+Finally the number of people who read only one morning paper and one evening paper is \(\mathbb{P}[E] \times 100000 = 0.1 \times 100000 = 10000\).
 
 
 
