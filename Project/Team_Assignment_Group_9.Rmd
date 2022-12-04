@@ -309,7 +309,6 @@ $$
 \end{tabular}
 $$
 
-
 # List 6 - Exercise 4.11
 
 Teams \(A\) and \(B\) play a series of games, with the first team to win 3 games being declared the winner of the series. Suppose that team \(A\) independently wins each game with probability \(p\). Find the conditional probability that team \(A\) wins:
@@ -396,7 +395,6 @@ P[Y > 10] = 1 - \text{pgeom(9, 0.0062) = 0.9397}
 $$
 
 The assumption is that the annual rainfall is independent year to year.
-
 
 
 # List 8 - Exercise 5.22
@@ -640,14 +638,14 @@ c) Find \(P\{X + Y < 1\}\)
 
 ## \underline{Solution}
 
-a) The joint density function is given, so in order to find if \(X\) and \(Y\) are independent firstly we have to find the two marginal distribution: \(f_{X}(x,y)\) and \(f_{Y}(x,y)\) and then verify if the multiplication of the two gives us the \(f_{X,Y}(x,y)\). If this holds we conclude saying X and Y are independent. Let's find out:
-\[f_{X}(x,y) = \int_a^b f_{X,Y}(x,y) \,dy = \int_0^1 (x + y) \,dy = \Bigg[xy + \frac{y^2}{2}\Bigg]_0^1 = \Bigg(x + \frac{1}{2} \Bigg)\]
-\[f_{Y}(x,y) = \int_a^b f_{X,Y}(x,y) \,dx = \int_0^1 (x + y) \,dx = \Bigg[xy + \frac{x^2}{2}\Bigg]_0^1 = \Bigg(y + \frac{1}{2} \Bigg)\]
+a) The joint density function is given, so in order to find if \(X\) and \(Y\) are independent firstly we have to find the two marginal distribution: \(f_{X}(x)\) and \(f_{Y}(y)\) and then verify if the multiplication of the two gives us the \(f_{X,Y}(x,y)\). If this holds we conclude saying X and Y are independent. Let's find out:
+\[f_{X}(x) = \int_a^b f_{X,Y}(x,y) \,dy = \int_0^1 (x + y) \,dy = \Bigg[xy + \frac{y^2}{2}\Bigg]_0^1 = \Bigg(x + \frac{1}{2} \Bigg)\]
+\[f_{Y}(y) = \int_a^b f_{X,Y}(x,y) \,dx = \int_0^1 (x + y) \,dx = \Bigg[xy + \frac{x^2}{2}\Bigg]_0^1 = \Bigg(y + \frac{1}{2} \Bigg)\]
 And
-\[f_{X}(x,y) \times f_{Y}(x,y) = \Bigg(x + \frac{1}{2} \Bigg) \cdot \Bigg(y + \frac{1}{2} \Bigg) = \frac{4xy + 2x +y +1}{4} \neq f_{X,Y}(x,y)\]
+\[f_{X}(x) \times f_{Y}(y) = \Bigg(x + \frac{1}{2} \Bigg) \cdot \Bigg(y + \frac{1}{2} \Bigg) = \frac{4xy + 2x +y +1}{4} \neq f_{X,Y}(x,y)\]
 Thus \(X\) and \(Y\) are not independent.
 
-b) From the previous point we remark the the result of density function of \(X\), which is \(f_{X}(x,y)\) is equal to:
+b) From the previous point we remark the the result of density function of \(X\), which is \(f_{X}(x)\) is equal to:
 \[\Bigg(x + \frac{1}{2} \Bigg)\]
 
 c) Finally in the last point of the exercise we have to find the \(P\{X + Y < 1\}\), thus in order to do this we have to integrate twice the joint PDF taking care on the range of \(x\) and \(y\), indeed if we let \(y\) taking any value in its domain, so \(0 < y < 1\), \(x\) have to take into account the variation of \(y\), so:
@@ -662,8 +660,6 @@ And moving the \(y\) to the right part of the second inequality we obtain a sing
 Knowing that now we can find the required probability:
 \[P\{X + Y < 1\} = \int_0^1 \int_0^{1-y}f_{X,Y}(x,y) \, dxdy = \int_0^1 \int_0^{1-y} (x + y) \, dxdy = \]
 \[\int_0^1\Big[\frac{x^2}{2} + xy \Big]_0^{1-y} \, dy = \int_0^1 \frac{(1-y)^2}{2} + y(1-y) \, dy = \Big[ \frac{y^3}{6} - \frac{y^2}{2} + \frac{y}{2} + \frac{y^2}{2} - \frac{y^3}{3} \Big]_0^1 = \frac{1}{3}\]
-
-
 
 # List 10 - Exercise 6.1
 
