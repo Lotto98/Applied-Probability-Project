@@ -172,7 +172,6 @@ Let's firstly solve separately each component of the union:
 We conclude saying that the outcomes are in the event \(A \cup B\) is equal to:
 \[\#(A \cup B) = \#A + \#B - \#(A \cap B) = 360 + 120 - 48 = 432\]
 
-
 # List 3 - Exercise 38
 
 Urn A has 5 white and 7 black balls. Urn B has 3 white and 12 black balls.We flip a fair coin. If the outcome is heads, then a ball from urn A is selected, whereas if the outcome is tails, then a ball from urn B is selected. Suppose that a white ball is selected. What is the probability that the coin landed tails?
@@ -190,7 +189,7 @@ We are asked to determine the $$ P[B | W] $$
 From the Bayes theorem we can calculate:
 
 $$
-\mathbb{P}[B|W] = \frac{\mathbb{P}[W|B] \cdot \mathbb{P}[B]}{P[W|B]\cdot  \mathbb{P}[B] + \mathbb{P}[W|A]\cdot  \mathbb{P}[A]} = \frac{3/15 \cdot 1/2}{3/15 \cdot 1/2 + 5/12 \cdot 1/2} = 0.3243
+\mathbb{P}[B|W] = \frac{\mathbb{P}[W|B] \cdot \mathbb{P}[B]}{P[W|B]\cdot  \mathbb{P}[B] + \mathbb{P}[W|A]\cdot  \mathbb{P}[A]} = \frac{3/15 \cdot 1/2}{3/15 \cdot 1/2 + 5/12 \cdot 1/2} = \frac{12}{37}=0.324324324
 $$
 
 # List 4 - Exercise 3.21
