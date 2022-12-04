@@ -270,7 +270,6 @@ This is what we had to prove.
 
 Two balls are chosen randomly from an urn containing 8 white, 4 black, and 2 orange balls. Suppose that we win 2 dollars for each black ball selected and we lose 1 dollar for each white ball selected. Let X denote our winnings. What are the possible values of X, and what are the probabilities associated with each value?
 
-
 ## \underline{Solution}
 
 Let 
@@ -305,7 +304,7 @@ $$
  \hline
  x & -2 & -1 & 0 & 1 & 2 & 4 \\
  \hline\hline
- P[X = x] & 0.3076923 & 0.1758242 & 0.01098901 & 0.3516484 & 0.08791209 & 0.06593407\\
+ P[X = x] & 0.3076923 & 0.1758242 & 0.01098901 & 0.3516484 & 0.08791209 & 0.06593407 \\
  \hline
 \end{tabular}
 $$
