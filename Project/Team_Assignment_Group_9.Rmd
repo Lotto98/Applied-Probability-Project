@@ -36,16 +36,16 @@ e) How many people read only one morning paper and one evening paper?
 
 ## \underline{Solution}
 
-Firstly we define the following events:
+Sampled a person \(p\) from the entire sample space we define the following event respect to \(p\):
 
-* A = \{\text{People who read only one newspaper}\}
-* B = \{\text{People who read at least two newspapers}\}
-* C = \{\text{People who read at least one morning paper plus an evening pape}\}
-* D = \{\text{People who do not read any newspapers}\}
-* E = \{\text{People who read only one morning paper and one evening paper}\}
-* I = \{\text{People who read newspaper I}\}
-* II = \{\text{People who read newspaper II}\}
-* III = \{\text{People who read newspaper III}\}
+* A = \{p\text{ read only one newspaper}\}
+* B = \{p\text{ read at least two newspapers}\}
+* C = \{p\text{ read at least one morning paper plus an evening pape}\}
+* D = \{p\text{ do not read any newspapers}\}
+* E = \{p\text{ read only one morning paper and one evening paper}\}
+* I = \{p\text{ read newspaper I}\}
+* II = \{p\text{ read read newspaper II}\}
+* III = \{p\text{ read read newspaper III}\}
 
 Moreover to better explain the solution we rewrite in mathematical language all the proportion of all combination of townspeople who read newspaper I, II and III as follow
 \[\mathbb{P}[I] = 0.1 \quad \mathbb{P}[II] = 0.3 \quad \mathbb{P}[III] = 0.05\]
@@ -68,10 +68,10 @@ And finally we draw a picture in order to have a visual understanding of the sub
 \end{tikzpicture}  
 \end{center}
 
-a) To solve the first point we define three additional sub-events of event A:
-* \(A_{I} = \)\{\text{People who read only the newspaper }I\}
-* \(A_{II} = \)\{\text{People who read only the newspaper }II\}
-* \(A_{III} = \)\{\text{People who read only the newspaper }III\}
+a) To solve the first point we define three additional sub-events of event respect to person \(p\):
+* \(A_{I} = \)\{\(p\)\text{ read only the newspaper }I\}
+* \(A_{II} = \)\{\(p\)\text{ read only the newspaper }II\}
+* \(A_{III} = \)\{\(p\)\text{ read only the newspaper }III\}
 
 Indeed the \(\mathbb{P}[A]\) is nothing else that the sum of \(\mathbb{P}[A_I] + \mathbb{P}[A_{II}] + \mathbb{P}[A_{III}]\). Now we note by the previous figure we have all what we need. To obtain the probability of one of the three sub-events we have to take the probability that a person read that newspaper subtracting the two intersection with the other newspaper and add the intersection of all three since we have subtracted that amount twice. More clearly:
 
@@ -93,11 +93,11 @@ Thus we obtain that:
 
 Finally the number of people who read only one newspaper is \(\mathbb{P}[A] \times 100000 = 0.20 \times 100000 = 20000\).
 
-b) In order to solve the second point we look again at the drawn figure and we see that again we have all what we need. Indeed we want to take into account all the intersection of people that read **at least** two newspaper and since each intersection consider two times the intersection of all of three newspaper we have to subtract that amount. Moreover as the previous point we introduce again three sub-events, so let:
-* \(B_{I \cap II \cap III^c} = \)\{\text{People who read the newspaper }I\text{ and }II\text{ but not }III\}
-* \(B_{I^c \cap II \cap III} = \)\{\text{People who read the newspaper }II\text{ and }III\text{ but not }I\}
-* \(B_{I \cap II^c \cap III} = \)\{\text{People who read the newspaper }III\text{ and }I\text{ but not }II\}
-* \(B_{I \cap II \cap III} = \)\{\text{People who read the newspaper }I\text{, }II\text{ and }III\}
+b) In order to solve the second point we look again at the drawn figure and we see that again we have all what we need. Indeed we want to take into account all the intersection of people that read **at least** two newspaper and since each intersection consider two times the intersection of all of three newspaper we have to subtract that amount. Moreover as the previous point we introduce again three sub-events respect to \(p\), so let:
+* \(B_{I \cap II \cap III^c} = \)\{\(p\)\text{ read the newspaper }I\text{ and }II\text{ but not }III\}
+* \(B_{I^c \cap II \cap III} = \)\{\(p\)\text{ read the newspaper }II\text{ and }III\text{ but not }I\}
+* \(B_{I \cap II^c \cap III} = \)\{\(p\)\text{ read the newspaper }III\text{ and }I\text{ but not }II\}
+* \(B_{I \cap II \cap III} = \)\{\(p\)\text{ read the newspaper }I\text{, }II\text{ and }III\}
 
 Thus
 \[\mathbb{P}[B] = \mathbb{P}[B_{I \cap II \cap III^c}] + \mathbb{P}[B_{I^c \cap II \cap III}] + \mathbb{P}[B_{I \cap II^c \cap III}] + \mathbb{P}B_{I \cap II \cap III}]\]
@@ -159,7 +159,7 @@ How many outcomes are in the event \(A \cup B\)?
 \[\#(A \cup B) = \#A + \#B - \#(A \cap B)\]
 Let's firstly solve separately each component of the union:
 
-* \(\#A\) is equal to all the possible combination of horses with the number-1 fixed in the first, second and third position, thus:
+* \(\#A\) is equal to all the possible combination of horses with the number-1 fixed in the first or second or third position, thus:
 \[(6-1)! \times 3 = 360\]
 * \(\#B\) is equal to all possible combination of horses with the number-2 fixed in the second position, thus:
 \[(6-1)! = 120\]
@@ -171,7 +171,7 @@ We conclude saying that the outcomes are in the event \(A \cup B\) is equal to:
 
 # List 3 - Exercise 38
 
-Urn A has 5 white and 7 black balls. Urn B has 3 white and 12 black balls.We flip a fair coin. If the outcome is heads, then a ball from urn A is selected, whereas if the outcome is tails, then a ball from urn B is selected. Suppose that a white ball is selected. What is the probability that the coin landed tails?
+Urn A has 5 white and 7 black balls. Urn B has 3 white and 12 black balls. We flip a fair coin. If the outcome is heads, then a ball from urn A is selected, whereas if the outcome is tails, then a ball from urn B is selected. Suppose that a white ball is selected. What is the probability that the coin landed tails?
 
 ## \underline{Solution}
 
@@ -269,7 +269,7 @@ Two balls are chosen randomly from an urn containing 8 white, 4 black, and 2 ora
 
 ## \underline{Solution}
 
-Let 
+Firstly we let:
 
 * O = an orange ball
 * W = a white ball
