@@ -199,7 +199,7 @@ has flipped n coins. (There are three possibilities.)
 
 ## \underline{Solution}
 
-Let's define 3 events:
+Let's define 3 random variables:
 
 1) $A_{n+1}=$ "the number of heads of A in $n+1$ flips"
 
