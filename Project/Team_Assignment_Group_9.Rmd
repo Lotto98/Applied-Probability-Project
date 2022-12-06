@@ -155,8 +155,8 @@ How many outcomes are in the event \(A \cup B\)?
 
 ## \underline{Solution}
 
-\(\#(A \cup B)\) indeed is equal to:
-\[\#(A \cup B) = \#A + \#B - \#(A \cap B)\]
+\(|(A \cup B)|\) indeed is equal to:
+\[|(A \cup B)| = |A| + |B| - |(A \cap B)|\]
 Let's firstly solve separately each component of the union:
 
 * \(|A|\) is equal to all the possible permutations of horses with the number-1 fixed in the one of the top 3 positions, thus:
