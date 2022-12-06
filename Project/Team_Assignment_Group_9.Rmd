@@ -159,15 +159,15 @@ How many outcomes are in the event \(A \cup B\)?
 \[\#(A \cup B) = \#A + \#B - \#(A \cap B)\]
 Let's firstly solve separately each component of the union:
 
-* \(\#A\) is equal to all the possible combination of horses with the number-1 fixed in the first or second or third position, thus:
+* \(|A|\) is equal to all the possible permutations of horses with the number-1 fixed in the one of the top 3 positions, thus:
 \[(6-1)! \times 3 = 360\]
-* \(\#B\) is equal to all possible combination of horses with the number-2 fixed in the second position, thus:
+* \(|B|\) is equal to all possible permutations of horses with the number-2 fixed in the second position, thus:
 \[(6-1)! = 120\]
-* \(\#(A \cap B)\) is equal to all the possible combination of horses with the number-2 fixed in the second position and the number-1 that can take the first or third position, thus:
+* \(|(A \cap B)|\) is equal to all the possible permutations of horses with the number-2 fixed in the second position and the number-1 that can take the first or third position, thus:
 \[(6-2)! \times 2 = 48\]
 
 We conclude saying that the outcomes are in the event \(A \cup B\) is equal to:
-\[\#(A \cup B) = \#A + \#B - \#(A \cap B) = 360 + 120 - 48 = 432\]
+\[|(A \cup B)| = |A| + |B| - |(A \cap B)| = 360 + 120 - 48 = 432\]
 
 # List 3 - Exercise 38
 
@@ -286,7 +286,9 @@ Our possible experiment results of X are the following one:
 
 Let X be the random variable denoting our winnings,
 
-The the probability to obtain the previous event choosing two balls randomly from the urn are:
+The the probability to obtain the previous events choosing two balls randomly from the urn of 14 balls is described by a combinations of taking the two balls, being x black balls out of 4 available, y white balls out of 8 available, and z orange balls out of 2 available.
+\[\frac{\dbinom{4}{x}\dbinom{8}{y}\dbinom{2}{z}}{\dbinom{14}{2}}\]
+
 \[\mathbb{P}[X = -2] = \mathbb{P}[\{W, W\}] =  \frac{\dbinom{4}{0}\dbinom{8}{2}\dbinom{2}{0}}{\dbinom{14}{2}} = 0.3076923\]
 \[\mathbb{P}[X = -1] = \mathbb{P}[\{W, O\}] = \frac{\dbinom{4}{0}\dbinom{8}{1}\dbinom{2}{1}}{\dbinom{14}{2}} = 0.1758242\]
 \[\mathbb{P}[X = 0] = \mathbb{P}[\{O, O\}] = \frac{\dbinom{4}{0}\dbinom{8}{0}\dbinom{2}{2}}{\dbinom{14}{2}} = 0.01098901\]
