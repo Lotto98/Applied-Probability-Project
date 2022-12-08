@@ -2,9 +2,19 @@
 title: "Team 9 Assignment Exercises"
 author: "Zuliani Riccardo 875532 - Aggio Nicola 880008 - Lotto Michele 875922"
 date: "14/11/2022"
-output: 
+output:
   pdf_document:
-    extra_dependencies: ["bbm", "threeparttable", "amsmath", "cases", "mathtools", "pdflscape", "multirow", "tikz"]
+    extra_dependencies:
+    - bbm
+    - threeparttable
+    - amsmath
+    - cases
+    - mathtools
+    - pdflscape
+    - multirow
+    - tikz
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, include=FALSE}
@@ -36,7 +46,7 @@ e) How many people read only one morning paper and one evening paper?
 
 ## \underline{Solution}
 
-Sampled a person \(p\) from the entire sample space we define the following event respect to \(p\):
+Sampled a person \(p\) from the town population, we define the following events:
 
 * A = \{p\text{ read only one newspaper}\}
 * B = \{p\text{ read at least two newspapers}\}
@@ -68,12 +78,12 @@ And finally we draw a picture in order to have a visual understanding of the sub
 \end{tikzpicture}  
 \end{center}
 
-a) To solve the first point we define three additional sub-events of event respect to person \(p\):
+a) To solve the first point we define three additional sub-events from the initial event \(A\):
 * \(A_{I} = \)\{\(p\)\text{ read only the newspaper }I\}
 * \(A_{II} = \)\{\(p\)\text{ read only the newspaper }II\}
 * \(A_{III} = \)\{\(p\)\text{ read only the newspaper }III\}
 
-Indeed the \(\mathbb{P}[A]\) is nothing else that the sum of \(\mathbb{P}[A_I] + \mathbb{P}[A_{II}] + \mathbb{P}[A_{III}]\). Now we note by the previous figure we have all what we need. To obtain the probability of one of the three sub-events we have to take the probability that a person read that newspaper subtracting the two intersection with the other newspaper and add the intersection of all three since we have subtracted that amount twice. More clearly:
+Indeed the \(\mathbb{P}[A]\) is nothing else that the sum of \(\mathbb{P}[A_I] + \mathbb{P}[A_{II}] + \mathbb{P}[A_{III}]\). Now we note by the previous figure we have all what we need. To obtain the probability of one of the three sub-events we have to take the probability that a person read that newspaper subtracting the two intersection with the other newspapers and add the intersection of all three since we have subtracted that amount twice. More clearly:
 
 \[\mathbb{P}[A_I] = \mathbb{P}[I] - \mathbb{P}[I \cap II] - \mathbb{P}[I \cap III] + \mathbb{P}[I \cap II \cap III]\]
 \[\mathbb{P}[A_I] = 0.1 - 0.08 - 0.02 + 0.01 = 0.01\]
@@ -86,14 +96,14 @@ Similarly for the other two sub-events we have:
 \[\mathbb{P}[A_{III}] = \mathbb{P}[III] - \mathbb{P}[III \cap I] - \mathbb{P}[III \cap II] + \mathbb{P}[I \cap II \cap III]\]
 \[\mathbb{P}[A_{III}] = 0.05 - 0.02 - 0.04 + 0.01 = 0.00\]
 
-Thus we obtain that:
+Thus, we obtain that:
 
 \[\mathbb{P}[A] = \mathbb{P}[A_I] + \mathbb{P}[A_{II}] + \mathbb{P}[A_{III}]\]
 \[\mathbb{P}[A] = 0.01 + 0.19 + 0.00 = 0.20\]
 
-Finally the number of people who read only one newspaper is \(\mathbb{P}[A] \times 100000 = 0.20 \times 100000 = 20000\).
+Finally, the number of people who read only one newspaper is \(\mathbb{P}[A] \times 100000 = 0.20 \times 100000 = 20000\).
 
-b) In order to solve the second point we look again at the drawn figure and we see that again we have all what we need. Indeed we want to take into account all the intersection of people that read **at least** two newspaper and since each intersection consider two times the intersection of all of three newspaper we have to subtract that amount. Moreover as the previous point we introduce again three sub-events respect to \(p\), so let:
+b) In order to solve the second point we look again at the drawn figure and we see that again we have all what we need. Indeed, we want to take into account all the intersections of people that read **at least** two newspapers and since each intersection consider two times the intersection of all of three newspaper we have to subtract that amount. Moreover, as the previous point, we introduce again three sub-events from the initial event \(B\), so let:
 * \(B_{I \cap II \cap III^c} = \)\{\(p\)\text{ read the newspaper }I\text{ and }II\text{ but not }III\}
 * \(B_{I^c \cap II \cap III} = \)\{\(p\)\text{ read the newspaper }II\text{ and }III\text{ but not }I\}
 * \(B_{I \cap II^c \cap III} = \)\{\(p\)\text{ read the newspaper }III\text{ and }I\text{ but not }II\}
@@ -117,16 +127,16 @@ Thus
 So
 \[\mathbb{P}[B] = 0.07 + 0.03 + 0.01 + 0.01 = 0.12\]
 
-Finally the number of people who read at least two newspaper is \(\mathbb{P}[B] \times 100000 = 0.12 \times 100000 = 12000\).
+Finally, the number of people who read at least two newspaper is \(\mathbb{P}[B] \times 100000 = 0.12 \times 100000 = 12000\).
 
 
-c) In this point we to retrieve how many people read at least one morning paper plus an evening paper, thus all of this can be re-write into the probability to read one of the morning newspaper **or** both, **and** the evening newspaper. More formally we want to obtain:
+c) In this point we to retrieve how many people read at least one morning newspaper plus an evening newspaper, thus all of this can be re-write into the probability to read one of the morning newspapers **or** both, **and** the evening newspaper. More formally, we want to obtain:
 <!--\[\mathbb{P}[C] = \mathbb{P}[(I \cup III) \cap II] = (\mathbb{P}[I] + \mathbb{P}[III] - \mathbb{P}[I \cap III]) \cap \mathbb{P}[II]\]-->
-\[\mathbb{P}[C] = \mathbb{P}[(I \cup III) \cap II] = (\mathbb{P}[I] + \mathbb{P}[III] - \mathbb{P}[I \cap III]) \cdot \mathbb{P}[II]\]
+\[\mathbb{P}[C] = \mathbb{P}[(I \cup III) \cap II] = \mathbb{P}[(I \cap II) \cup (III \cap II)] \text{ by distrubutive law}\]
 \[= \mathbb{P}[I \cap II] + \mathbb{P}[III \cap II] - \mathbb{P}[I \cap II \cap III]\]
 \[= 0.08 + 0.04 - 0.01 = 0.11
 \]
-Finally the number of people who read read at least one morning paper plus an evening paper is \(\mathbb{P}[C] \times 100000 = 0.11 \times 100000 = 11000\).
+Finally, the number of people who read at least one morning newspapers plus an evening newspaper is \(\mathbb{P}[C] \times 100000 = 0.11 \times 100000 = 11000\).
 
 d) The \(\mathbb{P}[D]\) can be rewritten into \(1 - \mathbb{P}[I \cup II \cup III]\), thus:
 \[
@@ -134,15 +144,16 @@ d) The \(\mathbb{P}[D]\) can be rewritten into \(1 - \mathbb{P}[I \cup II \cup I
 \[= 1 - \Big(\mathbb{P}[I] + \mathbb{P}[II] + \mathbb{P}[III] - \mathbb{P}[I \cap II] - \mathbb{P}[II \cap III] - \mathbb{P}[III \cap I] + \mathbb{P}[I \cap II \cap III] \Big)\]
 \[= 1 - \Big(0.1 + 0.3 + 0.05 - 0.08 - 0.04 - 0.02 + 0.01 \Big) = 0.68
 \]
-Thus the number of people who do not read any newspaper is \(\mathbb{P}[D] \times 100000 = 0.68 \times 100000 = 68000\).
+Thus, the number of people who do not read any newspaper is \(\mathbb{P}[D] \times 100000 = 0.68 \times 100000 = 68000\).
 
 e) This point is similar to the point "c" except the case that we have to exclude the intersection between the two morning newspaper. More formally:
-\[\mathbb{P}[C] = \mathbb{P}\Big[\Big((I - III) \cup (III - I)\Big) \cap II\Big] = \mathbb{P}\Big[\Big((I \cap III^c) \cup (III \cap I^c)\Big) \cap II\Big]\]
+\[\mathbb{P}[E] = \mathbb{P}\Big[\Big((I \setminus III) \cup (III \setminus I)\Big) \cap II\Big] = \mathbb{P}\Big[\Big((I \cap III^c) \cup (III \cap I^c)\Big) \cap II\Big]\]
+\[= \mathbb{P}\Big[(I \cap III^c \cap II) \cup (III \cap I^c \cap II)\Big] \text{ by distrubutive law}\]
 \[= \mathbb{P}[I \cap II \cap III^c] + \mathbb{P}[I^c \cap II \cap III] = \Big(\mathbb{P}[I \cap II] - \mathbb{P}[I \cap II \cap III]\Big) + \Big(\mathbb{P}[II \cap III] -\mathbb{P}[I \cap II \cap III]\Big)\]
 \[= \mathbb{P}[I \cap II] + \mathbb{P}[II \cap III] -2\mathbb{P}[I \cap II \cap III]\]
 \[= 0.08 + 0.04 - 2 \times 0.01 = 0.1\]
 
-Finally the number of people who read only one morning paper and one evening paper is \(\mathbb{P}[E] \times 100000 = 0.1 \times 100000 = 10000\).
+Finally, the number of people who read only one morning paper and one evening paper is \(\mathbb{P}[E] \times 100000 = 0.1 \times 100000 = 10000\).
 
 # List 2 - Exercise 10
 
@@ -181,12 +192,16 @@ By the description of this problem, we can consider the following events:
 - B = {choosing the urn B}
 - W = {select the white ball}
 
-Since the coin is fair, $$P[A] = P[B] = 1/2$$ 
-We are asked to determine the $$ P[B | W] $$
-From the Bayes theorem we can calculate:
+Since the coin is fair, $$\mathbb{P}[A] = \mathbb{P}[B] = \frac{1}{2}$$ 
+We are asked to determine the $$ \mathbb{P}[B | W] $$
+From the Bayes theorem and the law of total probability, we can calculate:
 
 $$
-\mathbb{P}[B|W] = \frac{\mathbb{P}[W|B] \cdot \mathbb{P}[B]}{P[W|B]\cdot  \mathbb{P}[B] + \mathbb{P}[W|A]\cdot  \mathbb{P}[A]} = \frac{3/15 \cdot 1/2}{3/15 \cdot 1/2 + 5/12 \cdot 1/2} = \frac{12}{37}=0.324324324
+\begin{aligned}
+\mathbb{P}[B|W] &= \frac{\mathbb{P}[W|B] \cdot \mathbb{P}[B]}{\mathbb{P}[W]} \\
+&= \frac{\mathbb{P}[W|B] \cdot \mathbb{P}[B]}{\mathbb{P}[W|B]\cdot  \mathbb{P}[B] + \mathbb{P}[W|A]\cdot  \mathbb{P}[A]} \\
+&= \frac{3/15 \cdot 1/2}{3/15 \cdot 1/2 + 5/12 \cdot 1/2} = \frac{12}{37}=0.324324324
+\end{aligned}
 $$
 
 # List 4 - Exercise 3.21
@@ -284,7 +299,7 @@ Our possible experiment results of X are the following one:
 * \{B, O\} = +2$
 * \{B, B\} = +4$
 
-Let X be the random variable denoting our winnings,
+Let X be the random variable denoting our winnings.
 
 The the probability to obtain the previous events choosing two balls randomly from the urn of 14 balls is described by a combinations of taking the two balls, being x black balls out of 4 available, y white balls out of 8 available, and z orange balls out of 2 available.
 \[\frac{\dbinom{4}{x}\dbinom{8}{y}\dbinom{2}{z}}{\dbinom{14}{2}}\]
@@ -321,7 +336,7 @@ Let's first define some useful events to solve the exercise:
 * \(A_{series}\) = \{\text{team A win the series of games}\}
 * \(A_{first}\) = \{\text{team A win the first game of the series}\}
 
-Moreover we remark that \(A\) wins each game independently with probability \(p\), thus loose or in other words \(B\) wins with probability \(1-p\)
+Moreover we remark that \(A\) wins each game independently with probability \(p\), thus loose or, in other words, \(B\) wins with probability \(1-p\).
 
 a) The first point ask us to find:
 $$
@@ -332,7 +347,7 @@ $$
 \mathbb{P}[A_{serie} | A_{first}] = \frac{\mathbb{P}[A_{serie} \cap A_{first}]}{\mathbb{P}[A_{first}]}
 $$
 By the exercise text we know that the \(\mathbb{P}[A_{first}]\) is equal to the probability of win of \(A\) which is equal to \(p\).
-Now the possible combination with the associate probability \(\mathbb{P}[A_{serie} \cap A_{first}]\) are the following one
+Now the possible combination with the associate probability \(\mathbb{P}[A_{serie} \cap A_{first}]\) are the following:
 
 * A AA with probability \(p^3\)
 * A ABA with probability \(p^3(1-p)\)
@@ -341,10 +356,10 @@ Now the possible combination with the associate probability \(\mathbb{P}[A_{seri
 * A BABA with probability \(p^3(1-p)^2\)
 * A BBAA with probability \(p^3(1-p)^2\)
 
-An the sum of this probabilities is:
+And the sum of this probabilities is:
 $$p^3 + 2p^3(1-p) + 3p^3(1-p)^2 = p(p^2 + 2p^2(1-p) + 3p^2(1-p)^2)$$
 
-In conclusion
+In conclusion:
 $$
 \mathbb{P}[A_{serie} | A_{first}] = \frac{p(p^2 + 2p^2(1-p) + 3p^2(1-p)^2)}{p} = p^2 + 2p^2(1-p) + 3p^2(1-p)^2
 $$
@@ -387,7 +402,7 @@ $$
 \mathbb{P}[X > 50] = \mathbb{P}\Bigg[Z > \frac{50 - \mu}{\sigma}\Bigg] = P[Z > 2.5] = \text{pnorm(2.5, lower.tail = FALSE)} = 0.0062
 $$
 
-Then, we can model the number of years before a year with rainfall exceeding 50 inches with the variable $Y \sim Geom(p)$, where $p$ is the probability of success, in this case $p = 0.0062$. Finally, we can answer the question of the problem by calculating
+Then, we can model the number of years before a year with rainfall exceeding 50 inches with the variable $Y \sim Geom(p)$, where $p$ is the probability of success, in this case $p = 0.0062$. Finally, we can answer the question of the problem by calculating:
 
 $$
 P[Y > 10] = 1 - \text{pgeom(9, 0.0062) = 0.9397}
@@ -502,6 +517,30 @@ f_Y(y) =
 $$
 which in turn is a $U(a,1+a)$ by definition.
 
+c) We have to find the function $g(.)$ such that $g(U) \sim U(a,b)$
+
+Let $Y \sim U(a,b)$ with CDF:
+$$
+F_Y(y) = 
+\begin{cases}
+0, & y<a \\
+\frac{y-a}{b-a}, & y \in [a,b] \\
+1, & y>b
+\end{cases}
+$$
+Given that $p=\frac{y-a}{b-a}$ is a probability, we know that $p$ takes values between 0 and 1. $p$ can be seen as a Standard Uniform distribution ($p=U$).
+
+Indeed, we calculate $y=F^{-1}_Y(p)$:
+
+$$
+p=\frac{y-a}{b-a} \Rightarrow
+p \times (b-a)=y-a \Rightarrow
+p \times (b-a)+a=y
+$$
+The function that transforms a Standard Uniform in a $U(a,b)$ is indeed $g(U)=U \times (b-a)+a$
+
+
+
 d) We have to prove that $Y=min(U,1-U) \sim U(0,1/2)$
 
 We distinguish two cases:
@@ -509,7 +548,7 @@ We distinguish two cases:
 1) if $U \ge \frac{1}{2}$ then the min is $Y=1-U$
 2) if $U \le \frac{1}{2}$ then the min is $Y=U$
 
-1) First we calculate the interval extremes:
+1 ) First we calculate the interval extremes:
 
 * if $U=\frac{1}{2}$ then $Y=\frac{1}{2}$
 
@@ -529,7 +568,7 @@ f_Y(y) =
 $$
 which in turn is a $U(0,\frac{1}{2})$ by definition.
 
-2) First we calculate the interval extremes:
+2 ) First we calculate the interval extremes:
 
 * if $U=0$ then $Y=0$
 
@@ -549,28 +588,6 @@ f_Y(y) =
 $$
 which in turn is a $U(0,\frac{1}{2})$ by definition.
 
-c) We have to find the function $f(.)$ such that $f(U) \sim U(a,b)$
-
-Let $Y \sim U(a,b)$ with CDF:
-$$
-f_Y(y) = 
-\begin{cases}
-0, & y<a \\
-\frac{y-a}{b-a}, & y \in [a,b] \\
-1, & y>b
-\end{cases}
-$$
-Given that $p=\frac{y-a}{b-a}$ is a probability, we know that $p$ takes values between 0 and 1. $p$ can be seen as a Standard Uniform distribution ($p=U$).
-
-Indeed, we calculate $y=f^{-1}_Y(p)$:
-
-$$
-p=\frac{y-a}{b-a} \Rightarrow
-p \times (b-a)=y-a \Rightarrow
-p \times (b-a)+a=y
-$$
-The function that transforms a Standard Uniform in a $U(a,b)$ is indeed $f(U)=U \times (b-a)+a$
-
 
 e) We have to prove that $Y=max(U,1-U) \sim U(\frac{1}{2},1)$
 
@@ -579,7 +596,7 @@ We distinguish two cases:
 1) if $U \ge \frac{1}{2}$ then the max is $Y=U$
 2) if $U \le \frac{1}{2}$ then the max is $Y=1-U$
 
-1) First we calculate the interval extremes:
+1 ) First we calculate the interval extremes:
 
 * if $U=1$ then $Y=1$
 
@@ -599,7 +616,7 @@ f_Y(y) =
 $$
 which in turn is a $U(\frac{1}{2},1)$ by definition.
 
-2) First we calculate the interval extremes:
+2 ) First we calculate the interval extremes:
 
 * if $U=0$ then $Y=1$
 
@@ -656,7 +673,7 @@ x + y < 1
 $$
 And moving the \(y\) to the right part of the second inequality we obtain a single inequality:
 \[0 < x < 1-y\]
-Knowing that now we can find the required probability:
+Knowing that, now we can find the required probability:
 \[P\{X + Y < 1\} = \int_0^1 \int_0^{1-y}f_{X,Y}(x,y) \, dxdy = \int_0^1 \int_0^{1-y} (x + y) \, dxdy = \]
 \[\int_0^1\Big[\frac{x^2}{2} + xy \Big]_0^{1-y} \, dy = \int_0^1 \frac{(1-y)^2}{2} + y(1-y) \, dy = \Big[ \frac{y^3}{6} - \frac{y^2}{2} + \frac{y}{2} + \frac{y^2}{2} - \frac{y^3}{3} \Big]_0^1 = \frac{1}{3}\]
 
