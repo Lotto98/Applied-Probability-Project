@@ -746,7 +746,7 @@ certain species of insect. Each insect caught will, independently
 of the types of the previous catches, be of type $i$ with
 probability:
 $$
-P_i, i = 1,...,r \space \space \space \sum_i^r P_i = 1 
+P_i \quad \text{with } i = 1,...,r \quad \sum_i^r P_i = 1 
 $$
 
 a) Compute the mean number of insects that are caught before the first type 1 catch.
@@ -765,13 +765,13 @@ b) For $i = 2,..,r$ we introduce the following variable $Y_i$:
 $$
 Y_i = 
 \begin{cases}
-  1, & \text{if type i caught before the first type 1 catch}  \\
+  1, & \text{if type } i \text{ is caught before the first type 1 catch}  \\
   0, & \text{otherwise}
 \end{cases}
 $$
 
-Then, $X = \sum \limits_{i = 2}^r Y_i$ represents the number of types of insects that are caught before the first type 1 catch. Therefore, the mean number of $X$ is given by:
+Then, $B = \sum \limits_{i = 2}^r Y_i$ represents the number of types of insects that are caught before the first type 1 catch. Therefore, the mean number of $B$ is given by:
 
 $$
-E[X] = E[\sum \limits_{i = 2}^r Y_i] = \sum \limits_{i = 2}^r E[Y_i] = \sum \limits_{i = 2}^r P[Y_i = 1] = \sum \limits_{i = 2}^r \frac{P_i}{P_1 + P_i} 
+E[B] = E[\sum \limits_{i = 2}^r Y_i] = \sum \limits_{i = 2}^r E[Y_i] = \sum \limits_{i = 2}^r P[Y_i = 1] = \sum \limits_{i = 2}^r \frac{P_i}{P_1 + P_i} 
 $$
