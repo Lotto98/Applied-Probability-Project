@@ -689,7 +689,12 @@ $$
 , where $X_i$ denotes the number of insects of type $i$ before the first type 1 catch. From the point a) we have that $X \sim Geom(P_1)$ represents the number of insects that are caught before the first type 1 catch, and we can notice that $\{X_i \geq 1, X = x \}$ are disjoint and exhaustive events. Thus, so we can write $\mathbb{P}[X_i \geq 1]$ as follows:
 
 $$
-\mathbb{P}[X_i \geq 1] = \sum \limits_{x = 0}^ \infty \mathbb{P}[X_i \geq 1, X = x]  \\ = \sum \limits_{x = 0}^ \infty \mathbb{P}[X = x] - \mathbb{P}[X_i = 0, X = x] \\ = \sum \limits_{x = 0}^ \infty \mathbb{P}[X = x] - \sum \limits_{x = 0}^ \infty \mathbb{P}[X_i = 0, X = x] \\ = \sum \limits_{x = 0}^ \infty (1 - P_1)^x P_1 - \sum \limits_{x = 0}^ \infty (1 - P_1 - P_i)^xP_1
+\begin{aligned}
+\mathbb{P}[X_i \geq 1] &= \sum \limits_{x = 0}^ \infty \mathbb{P}[X_i \geq 1, X = x] \\
+&= \sum \limits_{x = 0}^ \infty \mathbb{P}[X = x] - \mathbb{P}[X_i = 0, X = x] \\ 
+&= \sum \limits_{x = 0}^ \infty \mathbb{P}[X = x] - \sum \limits_{x = 0}^ \infty \mathbb{P}[X_i = 0, X = x] \\ 
+&= \sum \limits_{x = 0}^ \infty (1 - P_1)^x P_1 - \sum \limits_{x = 0}^ \infty (1 - P_1 - P_i)^xP_1
+\end{aligned}
 $$
 
 Using the formula for a geometric series, we get
