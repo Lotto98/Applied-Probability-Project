@@ -3,184 +3,95 @@ title: "Team 9 Assignment Exercises"
 author: "Zuliani Riccardo 875532 - Aggio Nicola 880008 - Lotto Michele 875922"
 date: "14/11/2022"
 output:
-  html_document: 
-    toc: yes
   pdf_document:
     extra_dependencies:
-    - bbm
-    - threeparttable
     - amsmath
     - cases
     - mathtools
     - pdflscape
     - multirow
-    - tikz
+  html_document: 
+    toc: yes
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 options(tinytex.verbose = TRUE)
-library("knitr")
 ```
 
 
 
-# List 1 - Exercise 13
+# List 1 - Exercise 3
 
-A certain town with a population of 100,000 has 3 newspapers: I, II, and III. The proportions of townspeople who read these papers are as follows:
-
-1. I: 10 percent 
-2. I and II: 8 percent 
-3. I and II and III: 1 percent
-4. II: 30 percent 
-5. I and III: 2 percent
-6. III: 5 percent
-7. II and III: 4 percent
-
-(The list tells us, for instance, that 8000 people read newspapers I and II.)
-
-a) Find the number of people who read only one newspaper.
-b) How many people read at least two newspapers?
-c) If I and III are morning papers and II is an evening paper, how many people read at least one morning paper plus an evening paper?
-d) How many people do not read any newspapers?
-e) How many people read only one morning paper and one evening paper?
+Two dice are thrown. Let $E$ be the event that the sum of the dice is odd, let $F$ be the event that at least one of the dice lands on 1, and let $G$ be the event that the sum is 5. Describe the events $EF$, $E \cup F$, $FG$, $EF^c$, and $EFG$.
 
 ## \underline{Solution}
 
-Sampled a person \(p\) from the town population, we define the following events:
+Let's first consider the single events. We represent as $(x,y)$ a pair of thrown dice, in which $x, y$ represent the number of each dice.
 
-* A = $\{p\text{ read only one newspaper}\}$
-* B = $\{p\text{ read at least two newspapers}\}$
-* C = $\{p\text{ read at least one morning paper plus an evening pape}\}$
-* D = $\{p\text{ do not read any newspapers}\}$
-* E = $\{p\text{ read only one morning paper and one evening paper}\}$
-* I = $\{p\text{ read newspaper I}\}$
-* II = $\{p\text{ read read newspaper II}\}$
-* III = $\{p\text{ read read newspaper III}\}$
+* $\begin{aligned}E = \{&(1,2),(1,4),(1,6),(2,1),(2,3),(2,5),(3,2),(3,4),(3,6),\\&(4,1),(4,3),(4,5),(5,2),(5,4),(5,6),(6,1),(6,3),(6,5)\}\end{aligned}$
+* $F = \{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(3,1),(4,1),(5,1),(6,1)\}$
+* $G = \{(1,4),(2,3),(3,2),(4,1)\}$
 
-Moreover to better explain the solution we rewrite in mathematical language all the proportion of all combination of townspeople who read newspaper I, II and III as follow
-\[\mathbb{P}[I] = 0.1 \quad \mathbb{P}[II] = 0.3 \quad \mathbb{P}[III] = 0.05\]
-\[\mathbb{P}[I \cap II] = 0.08 \quad \mathbb{P}[I \cap III] = 0.02 \quad \mathbb{P}[II \cap III] = 0.04 \quad \mathbb{P}[I \cap II \cap III] = 0.01 \quad\]
+a) $EF$ can be interpreted as the $\textbf{intersection}$ between the two events $E$ and $F$ thus it can be rewritten like so: $E \cap F$. Since it is an intersection we must keep only the common outcomes. Moreover we can describe this intersection as the event in which the sum of the dice is odd and at least one of the dice lands on 1.
 
-And finally we draw a picture in order to have a visual understanding of the subdivision of all the events:
+$$
+E \cap F= \{(1,2),(1,4),(1,6),(2,1),(4,1),(6,1)\}
+$$
 
-\begin{center}
-\begin{tikzpicture}
-  \tikzset{venn circle/.style={draw,circle,minimum width=7cm,fill=#1,opacity=0.4}}
+b) $E \cup F$ is the $\textbf{union}$ between the two single event $E$ and $F$, so we have to maintain all the outcomes of both events considering the common ones only one time. We end up with this sequence of outcomes:
 
-  \node [venn circle = red] (A) at (0,0) {$I$};
-  \node [venn circle = blue] (B) at (65:4cm) {$II$};
-  \node [venn circle = green] (C) at (0:4cm) {$III$};
-  \node[left] at (barycentric cs:A=1/2,B=1/2 ) {$I \cap II$}; 
-  \node[below] at (barycentric cs:A=1/2,C=1/2 ) {$I \cap III$};   
-  \node[right] at (barycentric cs:B=1/2,C=1/2 ) {$II \cap III$};   
-  \node[below] at (barycentric cs:A=1/3,B=1/3,C=1/3 ){$I \cap II \cap III$};
-\end{tikzpicture}  
-\end{center}
+$$
+\begin{aligned}
+E \cup F = \{&(1,2),(1,4),(1,6),(2,1),(2,3),(2,5),(3,2),(3,4),(3,6),(4,1),
+\\&(4,3),(4,5),(5,2),(5,4),(5,6),(6,1),(6,3),(6,5),(1,1),(1,3),(1,5),(3,1),(5,1)\}
+\end{aligned}
+$$
 
-a) To solve the first point we define three additional sub-events from the initial event \(A\):
-* \(A_{I} = \)\{\(p\)$\text{ read only the newspaper }$I\}
-* \(A_{II} = \)\{\(p\)$\text{ read only the newspaper }$II\}
-* \(A_{III} = \)\{\(p\)$\text{ read only the newspaper }$III\}
+c) $FG$ can be interpreted as the $\textbf{intersection}$ between the two events $F$ and $G$ thus it can be rewritten like so: $F \cap G$. Since it is an intersection we must keep only the common outcomes. Moreover we can describe this intersection as the event in which at least one of the dice lands on 1 and the sum of the two dice 5.
 
-Indeed the \(\mathbb{P}[A]\) is nothing else that the sum of \(\mathbb{P}[A_I] + \mathbb{P}[A_{II}] + \mathbb{P}[A_{III}]\). Now we note by the previous figure we have all what we need. To obtain the probability of one of the three sub-events we have to take the probability that a person read that newspaper subtracting the two intersection with the other newspapers and add the intersection of all three since we have subtracted that amount twice. More clearly:
+$$
+F \cap G = \{(1,4),(4,1)\}
+$$
 
-\[\mathbb{P}[A_I] = \mathbb{P}[I] - \mathbb{P}[I \cap II] - \mathbb{P}[I \cap III] + \mathbb{P}[I \cap II \cap III]\]
-\[\mathbb{P}[A_I] = 0.1 - 0.08 - 0.02 + 0.01 = 0.01\]
+d) $EF^c$ can be interpreted as the $\textbf{intersection}$ between the two events $E$ and $F^c$ which is the $\textbf{complement}$ of the event $F$. All of this can be rewritten like so: $E \cap F^c$. Furthermore, since it is an intersection we must keep only the common outcomes. We can describe this intersection as the event in which the sum of the dice is odd and no one of the two dice lands on 1. More interesting $E \cap F^c$ is also known as the difference between the two events: $E \setminus F$
 
-Similarly for the other two sub-events we have:
+$$
+E \setminus F = E \cap F^c = \{(2,3),(2,5),(3,2),(3,4),(3,6),(4,3),(4,5),(5,2),(5,4),(5,6),(6,3),(6,5)\}
+$$
 
-\[\mathbb{P}[A_{II}] = \mathbb{P}[II] - \mathbb{P}[II \cap I] - \mathbb{P}[II \cap III] + \mathbb{P}[I \cap II \cap III]\]
-\[\mathbb{P}[A_{II}] = 0.3 - 0.08 - 0.04 + 0.01 = 0.19\]
+e) $EFG$ can be interpreted as the $\textbf{intersection}$ between the three events $E$, $F$ and $G$ thus it can be rewritten like so: $E \cap F \cap G$. Since it is an intersection we must keep only the common outcomes. Moreover we can describe this intersection as the event in which the sum of the dice is odd and at least one of the dice lands on 1 and the sum of the two dice is 5.
 
-\[\mathbb{P}[A_{III}] = \mathbb{P}[III] - \mathbb{P}[III \cap I] - \mathbb{P}[III \cap II] + \mathbb{P}[I \cap II \cap III]\]
-\[\mathbb{P}[A_{III}] = 0.05 - 0.02 - 0.04 + 0.01 = 0.00\]
-
-Thus, we obtain that:
-
-\[\mathbb{P}[A] = \mathbb{P}[A_I] + \mathbb{P}[A_{II}] + \mathbb{P}[A_{III}]\]
-\[\mathbb{P}[A] = 0.01 + 0.19 + 0.00 = 0.20\]
-
-Finally, the number of people who read only one newspaper is \(\mathbb{P}[A] \times 100000 = 0.20 \times 100000 = 20000\).
-
-b) In order to solve the second point we look again at the drawn figure and we see that again we have all what we need. Indeed, we want to take into account all the intersections of people that read **at least** two newspapers and since each intersection consider two times the intersection of all of three newspaper we have to subtract that amount. Moreover, as the previous point, we introduce again three sub-events from the initial event \(B\), so let:
-* \(B_{I \cap II \cap III^c} = \)\{\(p\)$\text{ read the newspaper }I\text{ and }II\text{ but not }III$\}
-* \(B_{I^c \cap II \cap III} = \)\{\(p\)$\text{ read the newspaper }II\text{ and }III\text{ but not }I$\}
-* \(B_{I \cap II^c \cap III} = \)\{\(p\)$\text{ read the newspaper }III\text{ and }I\text{ but not }II$\}
-* \(B_{I \cap II \cap III} = \)\{\(p\)$\text{ read the newspaper }I\text{, }II\text{ and }III$\}
-
-Thus
-\[\mathbb{P}[B] = \mathbb{P}[B_{I \cap II \cap III^c}] + \mathbb{P}[B_{I^c \cap II \cap III}] + \mathbb{P}[B_{I \cap II^c \cap III}] + \mathbb{P}B_{I \cap II \cap III}]\]
-
-\[\mathbb{P}[B_{I \cap II \cap III^c}] = \mathbb{P}[I \cap II] - \mathbb{P}[I \cap II \cap III] \]
-\[\mathbb{P}[B_{I \cap II \cap III^c}] = 0.08 - 0.01 = 0.07\]
-
-\[\mathbb{P}[B_{I^c \cap II \cap III}] = \mathbb{P}[II \cap III] - \mathbb{P}[I \cap II \cap III] \]
-\[\mathbb{P}[B_{I^c \cap II \cap III}] = 0.04 - 0.01 = 0.03\]
-
-\[\mathbb{P}[B_{I \cap II^c \cap III}] = \mathbb{P}[I\cap III] - \mathbb{P}[I \cap II \cap III] \]
-\[\mathbb{P}[B_{I \cap II^c \cap III}] = 0.02 - 0.01 = 0.01\]
-
-\[\mathbb{P}[B_{I \cap II \cap III}] = \mathbb{P}[I \cap II \cap III] = 0.01\]
-
-
-So
-\[\mathbb{P}[B] = 0.07 + 0.03 + 0.01 + 0.01 = 0.12\]
-
-Finally, the number of people who read at least two newspaper is \(\mathbb{P}[B] \times 100000 = 0.12 \times 100000 = 12000\).
-
-
-c) In this point we to retrieve how many people read at least one morning newspaper plus an evening newspaper, thus all of this can be re-write into the probability to read one of the morning newspapers **or** both, **and** the evening newspaper. More formally, we want to obtain:
-<!--\[\mathbb{P}[C] = \mathbb{P}[(I \cup III) \cap II] = (\mathbb{P}[I] + \mathbb{P}[III] - \mathbb{P}[I \cap III]) \cap \mathbb{P}[II]\]-->
-\[\mathbb{P}[C] = \mathbb{P}[(I \cup III) \cap II] = \mathbb{P}[(I \cap II) \cup (III \cap II)] \text{ by distrubutive law}\]
-\[= \mathbb{P}[I \cap II] + \mathbb{P}[III \cap II] - \mathbb{P}[I \cap II \cap III]\]
-\[= 0.08 + 0.04 - 0.01 = 0.11
-\]
-Finally, the number of people who read at least one morning newspapers plus an evening newspaper is \(\mathbb{P}[C] \times 100000 = 0.11 \times 100000 = 11000\).
-
-d) The \(\mathbb{P}[D]\) can be rewritten into \(1 - \mathbb{P}[I \cup II \cup III]\), thus:
-\[
-\mathbb{P}[D] = 1 - \mathbb{P}[I \cup II \cup III]\]
-\[= 1 - \Big(\mathbb{P}[I] + \mathbb{P}[II] + \mathbb{P}[III] - \mathbb{P}[I \cap II] - \mathbb{P}[II \cap III] - \mathbb{P}[III \cap I] + \mathbb{P}[I \cap II \cap III] \Big)\]
-\[= 1 - \Big(0.1 + 0.3 + 0.05 - 0.08 - 0.04 - 0.02 + 0.01 \Big) = 0.68
-\]
-Thus, the number of people who do not read any newspaper is \(\mathbb{P}[D] \times 100000 = 0.68 \times 100000 = 68000\).
-
-e) This point is similar to the point "c" except the case that we have to exclude the intersection between the two morning newspaper. More formally:
-\[\mathbb{P}[E] = \mathbb{P}\Big[\Big((I \setminus III) \cup (III \setminus I)\Big) \cap II\Big] = \mathbb{P}\Big[\Big((I \cap III^c) \cup (III \cap I^c)\Big) \cap II\Big]\]
-\[= \mathbb{P}\Big[(I \cap III^c \cap II) \cup (III \cap I^c \cap II)\Big] \text{ by distrubutive law}\]
-\[= \mathbb{P}[I \cap II \cap III^c] + \mathbb{P}[I^c \cap II \cap III] = \Big(\mathbb{P}[I \cap II] - \mathbb{P}[I \cap II \cap III]\Big) + \Big(\mathbb{P}[II \cap III] -\mathbb{P}[I \cap II \cap III]\Big)\]
-\[= \mathbb{P}[I \cap II] + \mathbb{P}[II \cap III] -2\mathbb{P}[I \cap II \cap III]\]
-\[= 0.08 + 0.04 - 2 \times 0.01 = 0.1\]
-
-Finally, the number of people who read only one morning paper and one evening paper is \(\mathbb{P}[E] \times 100000 = 0.1 \times 100000 = 10000\).
+$$
+E \cap F \cap G = \{(1,4),(4,1)\} = F \cap G
+$$
 
 # List 2 - Exercise 10
 
 Consider an experiment that consists of 6 horses, numbered 1 through 6, running a race, and suppose that the sample space consists of the 6! possible orders in which the horses finish. Let:
 
-* \(A\) be the event that the number-1 horse is among the top three finishers
-* \(B\) be the event that the number-2 horse comes in second
+* $A$ be the event that the number-1 horse is among the top three finishers
+* $B$ be the event that the number-2 horse comes in second
 
-How many outcomes are in the event \(A \cup B\)?
+How many outcomes are in the event $A \cup B$?
 
 ## \underline{Solution}
 
-\(|(A \cup B)|\) indeed is equal to:
-\[|(A \cup B)| = |A| + |B| - |(A \cap B)|\]
+$|(A \cup B)|$ indeed is equal to:
+$$|(A \cup B)| = |A| + |B| - |(A \cap B)|$$
 Let's firstly solve separately each component of the union:
 
-* \(|A|\) is equal to all the possible permutations of horses with the number-1 fixed in the one of the top 3 positions, thus:
-\[(6-1)! \times 3 = 360\]
-* \(|B|\) is equal to all possible permutations of horses with the number-2 fixed in the second position, thus:
-\[(6-1)! = 120\]
-* \(|(A \cap B)|\) is equal to all the possible permutations of horses with the number-2 fixed in the second position and the number-1 that can take the first or third position, thus:
-\[(6-2)! \times 2 = 48\]
+* $|A|$ is equal to all the possible permutations of horses with the number-1 fixed in the one of the top 3 positions, thus:
+$$(6-1)! \times 3 = 360$$
+* $|B|$ is equal to all possible permutations of horses with the number-2 fixed in the second position, thus:
+$$(6-1)! = 120$$
+* $|(A \cap B)|$ is equal to all the possible permutations of horses with the number-2 fixed in the second position and the number-1 that can take the first or third position, thus:
+$(6-2)! \times 2 = 48$$
 
-We conclude saying that the number outcomes of event \(A \cup B\) is equal to:
-\[|(A \cup B)| = |A| + |B| - |(A \cap B)| = 360 + 120 - 48 = 432\]
+We conclude saying that the number outcomes of event $A \cup B$ is equal to:
+$$|(A \cup B)| = |A| + |B| - |(A \cap B)| = 360 + 120 - 48 = 432$$
 
-# List 3 - Exercise 38
+# List 3 - Exercise 3.38
 
 Urn A has 5 white and 7 black balls. Urn B has 3 white and 12 black balls. We flip a fair coin. If the outcome is heads, then a ball from urn A is selected, whereas if the outcome is tails, then a ball from urn B is selected. Suppose that a white ball is selected. What is the probability that the coin landed tails?
 
@@ -302,14 +213,14 @@ Our possible experiment results of X are the following one:
 Let X be the random variable denoting our winnings.
 
 The the probability to obtain the previous events choosing two balls randomly from the urn of 14 balls is described by a combinations of taking the two balls, being x black balls out of 4 available, y white balls out of 8 available, and z orange balls out of 2 available.
-\[\frac{\dbinom{4}{x}\dbinom{8}{y}\dbinom{2}{z}}{\dbinom{14}{2}}\]
+$$\frac{\dbinom{4}{x}\dbinom{8}{y}\dbinom{2}{z}}{\dbinom{14}{2}}$$
 
-\[\mathbb{P}[X = -2] = \mathbb{P}[\{W, W\}] =  \frac{\dbinom{4}{0}\dbinom{8}{2}\dbinom{2}{0}}{\dbinom{14}{2}} = 0.3076923\]
-\[\mathbb{P}[X = -1] = \mathbb{P}[\{W, O\}] = \frac{\dbinom{4}{0}\dbinom{8}{1}\dbinom{2}{1}}{\dbinom{14}{2}} = 0.1758242\]
-\[\mathbb{P}[X = 0] = \mathbb{P}[\{O, O\}] = \frac{\dbinom{4}{0}\dbinom{8}{0}\dbinom{2}{2}}{\dbinom{14}{2}} = 0.01098901\]
-\[\mathbb{P}[X = 1] = \mathbb{P}[\{B, W\}] = \frac{\dbinom{4}{1}\dbinom{8}{1}\dbinom{2}{0}}{\dbinom{14}{2}} = 0.3516484\]
-\[\mathbb{P}[X = 2] = \mathbb{P}[\{B, O\}] = \frac{\dbinom{4}{1}\dbinom{8}{0}\dbinom{2}{1}}{\dbinom{14}{2}} = 0.08791209\]
-\[\mathbb{P}[X = 4] = \mathbb{P}[\{B, B\}]  = \frac{\dbinom{4}{2}\dbinom{8}{0}\dbinom{2}{0}}{\dbinom{14}{2}} =  0.06593407\]
+$$\mathbb{P}[X = -2] = \mathbb{P}[\{W, W\}] =  \frac{\dbinom{4}{0}\dbinom{8}{2}\dbinom{2}{0}}{\dbinom{14}{2}} = 0.3076923$$
+$$\mathbb{P}[X = -1] = \mathbb{P}[\{W, O\}] = \frac{\dbinom{4}{0}\dbinom{8}{1}\dbinom{2}{1}}{\dbinom{14}{2}} = 0.1758242$$
+$$\mathbb{P}[X = 0] = \mathbb{P}[\{O, O\}] = \frac{\dbinom{4}{0}\dbinom{8}{0}\dbinom{2}{2}}{\dbinom{14}{2}} = 0.01098901$$
+$$\mathbb{P}[X = 1] = \mathbb{P}[\{B, W\}] = \frac{\dbinom{4}{1}\dbinom{8}{1}\dbinom{2}{0}}{\dbinom{14}{2}} = 0.3516484$$
+$$\mathbb{P}[X = 2] = \mathbb{P}[\{B, O\}] = \frac{\dbinom{4}{1}\dbinom{8}{0}\dbinom{2}{1}}{\dbinom{14}{2}} = 0.08791209$$
+$$\mathbb{P}[X = 4] = \mathbb{P}[\{B, B\}]  = \frac{\dbinom{4}{2}\dbinom{8}{0}\dbinom{2}{0}}{\dbinom{14}{2}} =  0.06593407$$
 
 
 We can summarize the probability distribution function with the following table:
@@ -325,7 +236,7 @@ $$
 
 # List 6 - Exercise 4.11
 
-Teams \(A\) and \(B\) play a series of games, with the first team to win 3 games being declared the winner of the series. Suppose that team \(A\) independently wins each game with probability \(p\). Find the conditional probability that team \(A\) wins:
+Teams $A$ and $B$ play a series of games, with the first team to win 3 games being declared the winner of the series. Suppose that team $A$ independently wins each game with probability $p$. Find the conditional probability that team $A$ wins:
 
 a) the series given that it wins the first game
 b) the first game given that it wins the series
@@ -333,10 +244,10 @@ b) the first game given that it wins the series
 ## \underline{Solution}
 Let's first define some useful events to solve the exercise:
 
-* \(A_{series}\) = \{\text{team A win the series of games}\}
-* \(A_{first}\) = \{\text{team A win the first game of the series}\}
+* $A_{series}$ = \{team $A$ win the series of games\}
+* $A_{first}$ = \{team $A$ win the first game of the series\}
 
-Moreover we remark that \(A\) wins each game independently with probability \(p\), thus loose or, in other words, \(B\) wins with probability \(1-p\).
+Moreover we remark that $A$ wins each game independently with probability $p$, thus loose or, in other words, $B$ wins with probability $1-p$.
 
 a) The first point ask us to find:
 $$
@@ -349,12 +260,12 @@ $$
 By the exercise text we know that the \(\mathbb{P}[A_{first}]\) is equal to the probability of win of \(A\) which is equal to \(p\).
 Now the possible combination with the associate probability \(\mathbb{P}[A_{serie} \cap A_{first}]\) are the following:
 
-* A AA with probability \(p^3\)
-* A ABA with probability \(p^3(1-p)\)
-* A BAA with probability \(p^3(1-p)\)
-* A ABBA with probability \(p^3(1-p)^2\)
-* A BABA with probability \(p^3(1-p)^2\)
-* A BBAA with probability \(p^3(1-p)^2\)
+* A AA with probability $p^3$
+* A ABA with probability $p^3(1-p)$
+* A BAA with probability $p^3(1-p)$
+* A ABBA with probability $p^3(1-p)^2$
+* A BABA with probability $p^3(1-p)^2$
+* A BBAA with probability $p^3(1-p)^2$
 
 And the sum of this probabilities is:
 $$p^3 + 2p^3(1-p) + 3p^3(1-p)^2 = p(p^2 + 2p^2(1-p) + 3p^2(1-p)^2)$$
@@ -648,34 +559,39 @@ x + y, & 0 < x < 1, 0 < y < 1 \\
 \end{cases}
 $$
 
-a) Are \(X\) and \(Y\) independent?
-b) Find the density function of \(X\).
-c) Find \(P\{X + Y < 1\}\)
+a) Are $X$ and $Y$ independent?
+b) Find the density function of $X$.
+c) Find $P\{X + Y < 1\}$
 
 ## \underline{Solution}
 
-a) The joint density function is given, so in order to find if \(X\) and \(Y\) are independent firstly we have to find the two marginal distribution: \(f_{X}(x)\) and \(f_{Y}(y)\) and then verify if the multiplication of the two gives us the \(f_{X,Y}(x,y)\). If this holds we conclude saying X and Y are independent. Let's find out:
-\[f_{X}(x) = \int_a^b f_{X,Y}(x,y) \,dy = \int_0^1 (x + y) \,dy = \Bigg[xy + \frac{y^2}{2}\Bigg]_0^1 = \Bigg(x + \frac{1}{2} \Bigg)\]
-\[f_{Y}(y) = \int_a^b f_{X,Y}(x,y) \,dx = \int_0^1 (x + y) \,dx = \Bigg[xy + \frac{x^2}{2}\Bigg]_0^1 = \Bigg(y + \frac{1}{2} \Bigg)\]
+a) The joint density function is given, so in order to find if $X$ and $Y$ are independent firstly we have to find the two marginal distribution: $f_{X}(x)$ and $f_{Y}(y)$ and then verify if the multiplication of the two gives us the $f_{X,Y}(x,y)$. If this holds we conclude saying X and Y are independent. Let's find out:
+$$f_{X}(x) = \int_a^b f_{X,Y}(x,y) \,dy = \int_0^1 (x + y) \,dy = \Bigg[xy + \frac{y^2}{2}\Bigg]_0^1 = \Bigg(x + \frac{1}{2} \Bigg)$$
+$$f_{Y}(y) = \int_a^b f_{X,Y}(x,y) \,dx = \int_0^1 (x + y) \,dx = \Bigg[xy + \frac{x^2}{2}\Bigg]_0^1 = \Bigg(y + \frac{1}{2} \Bigg)$$
 And
-\[f_{X}(x) \times f_{Y}(y) = \Bigg(x + \frac{1}{2} \Bigg) \cdot \Bigg(y + \frac{1}{2} \Bigg) = \frac{4xy + 2x +y +1}{4} \neq f_{X,Y}(x,y)\]
-Thus \(X\) and \(Y\) are not independent.
+$$f_{X}(x) \times f_{Y}(y) = \Bigg(x + \frac{1}{2} \Bigg) \cdot \Bigg(y + \frac{1}{2} \Bigg) = \frac{4xy + 2x +y +1}{4} \neq f_{X,Y}(x,y)$$
+Thus $X$ and $Y$ are not independent.
 
-b) From the previous point we remark the the result of density function of \(X\), which is \(f_{X}(x)\) is equal to:
-\[\Bigg(x + \frac{1}{2} \Bigg)\]
+b) From the previous point we remark the the result of density function of $X$, which is $f_{X}(x)$ is equal to:
+$$\Bigg(x + \frac{1}{2} \Bigg)$$
 
-c) Finally in the last point of the exercise we have to find the \(P\{X + Y < 1\}\), thus in order to do this we have to integrate twice the joint PDF taking care on the range of \(x\) and \(y\), indeed if we let \(y\) taking any value in its domain, so \(0 < y < 1\), \(x\) have to take into account the variation of \(y\), so:
+c) Finally in the last point of the exercise we have to find the $P\{X + Y < 1\}$, thus in order to do this we have to integrate twice the joint PDF taking care on the range of $x$ and $y$, indeed if we let $y$ taking any value in its domain, so $0 < y < 1$, $x$ have to take into account the variation of $y$, so:
 $$
 \begin{cases}
 0 < x < 1\\
 x + y < 1
 \end{cases}
 $$
-And moving the \(y\) to the right part of the second inequality we obtain a single inequality:
-\[0 < x < 1-y\]
+And moving the $y$ to the right part of the second inequality we obtain a single inequality:
+$$0 < x < 1-y$$
 Knowing that, now we can find the required probability:
-\[P\{X + Y < 1\} = \int_0^1 \int_0^{1-y}f_{X,Y}(x,y) \, dxdy = \int_0^1 \int_0^{1-y} (x + y) \, dxdy = \]
-\[\int_0^1\Big[\frac{x^2}{2} + xy \Big]_0^{1-y} \, dy = \int_0^1 \frac{(1-y)^2}{2} + y(1-y) \, dy = \Big[ \frac{y^3}{6} - \frac{y^2}{2} + \frac{y}{2} + \frac{y^2}{2} - \frac{y^3}{3} \Big]_0^1 = \frac{1}{3}\]
+$$
+\begin{aligned}
+P\{X + Y < 1\} &= \int_0^1 \int_0^{1-y}f_{X,Y}(x,y) \, dxdy = \int_0^1 \int_0^{1-y} (x + y) \, dxdy
+\\&=\int_0^1\Big[\frac{x^2}{2} + xy \Big]_0^{1-y} \, dy = \int_0^1 \frac{(1-y)^2}{2} + y(1-y) \, dy 
+\\&=\Big[ \frac{y^3}{6} - \frac{y^2}{2} + \frac{y}{2} + \frac{y^2}{2} - \frac{y^3}{3} \Big]_0^1 = \frac{1}{3}
+\end{aligned}
+$$
 
 # List 10 - Exercise 6.1
 
