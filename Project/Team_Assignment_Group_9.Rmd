@@ -3,23 +3,28 @@ title: "Team 9 Assignment Exercises"
 author: "Zuliani Riccardo 875532 - Aggio Nicola 880008 - Lotto Michele 875922"
 date: "14/11/2022"
 output:
+  html_document: 
+    toc: yes
   pdf_document:
     extra_dependencies:
     - amsmath
     - cases
     - mathtools
     - pdflscape
-    - multirow
-  html_document: 
-    toc: yes
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 options(tinytex.verbose = TRUE)
+
+list.of.packages <- c("knitr")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+library("knitr")
 ```
 
-
+**Note:** We have make usage of the "knitr" R package in order to display two useful image. Respectively the first time for exercise 4.1 of list 5 and the other one for exercise 6.1 of list 10. 
 
 # List 1 - Exercise 3
 
@@ -33,13 +38,13 @@ Let's first consider the single events. We represent as $(x,y)$ a pair of thrown
 * $F = \{(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(3,1),(4,1),(5,1),(6,1)\}$
 * $G = \{(1,4),(2,3),(3,2),(4,1)\}$
 
-a) $EF$ can be interpreted as the $\textbf{intersection}$ between the two events $E$ and $F$ thus it can be rewritten like so: $E \cap F$. Since it is an intersection we must keep only the common outcomes. Moreover we can describe this intersection as the event in which the sum of the dice is odd and at least one of the dice lands on 1.
+a) $EF$ can be interpreted as the **intersection** between the two events $E$ and $F$ thus it can be rewritten like so: $E \cap F$. Since it is an intersection we must keep only the common outcomes. Moreover we can describe this intersection as the event in which the sum of the dice is odd and at least one of the dice lands on 1.
 
 $$
 E \cap F= \{(1,2),(1,4),(1,6),(2,1),(4,1),(6,1)\}
 $$
 
-b) $E \cup F$ is the $\textbf{union}$ between the two single event $E$ and $F$, so we have to maintain all the outcomes of both events considering the common ones only one time. We end up with this sequence of outcomes:
+b) $E \cup F$ is the **union** between the two single event $E$ and $F$, so we have to maintain all the outcomes of both events considering the common ones only one time. We end up with this sequence of outcomes:
 
 $$
 \begin{aligned}
@@ -48,19 +53,19 @@ E \cup F = \{&(1,2),(1,4),(1,6),(2,1),(2,3),(2,5),(3,2),(3,4),(3,6),(4,1),
 \end{aligned}
 $$
 
-c) $FG$ can be interpreted as the $\textbf{intersection}$ between the two events $F$ and $G$ thus it can be rewritten like so: $F \cap G$. Since it is an intersection we must keep only the common outcomes. Moreover we can describe this intersection as the event in which at least one of the dice lands on 1 and the sum of the two dice 5.
+c) $FG$ can be interpreted as the **intersection** between the two events $F$ and $G$ thus it can be rewritten like so: $F \cap G$. Since it is an intersection we must keep only the common outcomes. Moreover we can describe this intersection as the event in which at least one of the dice lands on 1 and the sum of the two dice 5.
 
 $$
 F \cap G = \{(1,4),(4,1)\}
 $$
 
-d) $EF^c$ can be interpreted as the $\textbf{intersection}$ between the two events $E$ and $F^c$ which is the $\textbf{complement}$ of the event $F$. All of this can be rewritten like so: $E \cap F^c$. Furthermore, since it is an intersection we must keep only the common outcomes. We can describe this intersection as the event in which the sum of the dice is odd and no one of the two dice lands on 1. More interesting $E \cap F^c$ is also known as the difference between the two events: $E \setminus F$
+d) $EF^c$ can be interpreted as the **intersection** between the two events $E$ and $F^c$ which is the **complement** of the event $F$. All of this can be rewritten like so: $E \cap F^c$. Furthermore, since it is an intersection we must keep only the common outcomes. We can describe this intersection as the event in which the sum of the dice is odd and no one of the two dice lands on 1. More interesting $E \cap F^c$ is also known as the difference between the two events: $E \setminus F$
 
 $$
 E \setminus F = E \cap F^c = \{(2,3),(2,5),(3,2),(3,4),(3,6),(4,3),(4,5),(5,2),(5,4),(5,6),(6,3),(6,5)\}
 $$
 
-e) $EFG$ can be interpreted as the $\textbf{intersection}$ between the three events $E$, $F$ and $G$ thus it can be rewritten like so: $E \cap F \cap G$. Since it is an intersection we must keep only the common outcomes. Moreover we can describe this intersection as the event in which the sum of the dice is odd and at least one of the dice lands on 1 and the sum of the two dice is 5.
+e) $EFG$ can be interpreted as the **intersection** between the three events $E$, $F$ and $G$ thus it can be rewritten like so: $E \cap F \cap G$. Since it is an intersection we must keep only the common outcomes. Moreover we can describe this intersection as the event in which the sum of the dice is odd and at least one of the dice lands on 1 and the sum of the two dice is 5.
 
 $$
 E \cap F \cap G = \{(1,4),(4,1)\} = F \cap G
@@ -224,15 +229,10 @@ $$\mathbb{P}[X = 4] = \mathbb{P}[\{B, B\}]  = \frac{\dbinom{4}{2}\dbinom{8}{0}\d
 
 
 We can summarize the probability distribution function with the following table:
-$$
-\begin{tabular}{c c c c c c c} 
- \hline
- x & -2 & -1 & 0 & 1 & 2 & 4 \\
- \hline\hline
- P[X = x] & 0.3076923 & 0.1758242 & 0.01098901 & 0.3516484 & 0.08791209 & 0.06593407 \\
- \hline
-\end{tabular}
-$$
+
+```{r, echo=FALSE, out.width = '75%', fig.align="center"}
+knitr::include_graphics("5-4.1.png")
+```
 
 # List 6 - Exercise 4.11
 
@@ -620,16 +620,11 @@ b) The joint pdf of X and Y is given by:
 
 We can represent the joint pdf in the following table:
 
-$$
-\begin{tabular}{|c|c|c|c|c|} 
- \hline
- \multicolumn{2}{|c|}{\multirow{2}{*}{\(P(x,y)\)}} & \multicolumn{2}{c|}{X} & \multirow{2}{*}{\(P_Y(y)\)}\\ \cline{3-4}
- \multicolumn{2}{|c|}{} & 0 & 1 & \\ \hline
- \multirow{2}{*}{Y} & 0 & 2/9 & 2/9 & 4/9 \\ \cline{2-5}
- & 1 & 1/9 & 4/9 & 5/9 \\ \hline
-\multicolumn{2}{|c|} {\(P_X(x)\)} & 3/9 & 6/9 & 9/9 \\ \hline
-\end{tabular}
-$$
+```{r, echo=FALSE, out.width = '30%', fig.align="center"}
+knitr::include_graphics("10-6.1.png")
+```
+
+
 
 c) The total ways of getting two ones, two twos etc.. can be calculated using the permutations with repetition formula: 
 
