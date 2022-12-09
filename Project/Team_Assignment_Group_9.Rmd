@@ -3,14 +3,14 @@ title: "Team 9 Assignment Exercises"
 author: "Zuliani Riccardo 875532 - Aggio Nicola 880008 - Lotto Michele 875922"
 date: "14/11/2022"
 output:
-  html_document: 
-    toc: yes
   pdf_document:
     extra_dependencies:
     - amsmath
     - cases
     - mathtools
     - pdflscape
+  html_document: 
+    toc: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -251,11 +251,11 @@ Moreover we remark that $A$ wins each game independently with probability $p$, t
 
 a) The first point ask us to find:
 $$
-\mathbb{P}[A_{serie} | A_{first}]
+\mathbb{P}[A_{series} | A_{first}]
 $$
 Which can be re-written into what follow:
 $$
-\mathbb{P}[A_{serie} | A_{first}] = \frac{\mathbb{P}[A_{serie} \cap A_{first}]}{\mathbb{P}[A_{first}]}
+\mathbb{P}[A_{series} | A_{first}] = \frac{\mathbb{P}[A_{series} \cap A_{first}]}{\mathbb{P}[A_{first}]}
 $$
 By the exercise text we know that the \(\mathbb{P}[A_{first}]\) is equal to the probability of win of \(A\) which is equal to \(p\).
 Now the possible combination with the associate probability \(\mathbb{P}[A_{serie} \cap A_{first}]\) are the following:
@@ -277,13 +277,13 @@ $$
 
 b) On the other hand the second point ask us to find:
 $$
-\mathbb{P}[A_{first}|A_{serie}]
+\mathbb{P}[A_{first}|A_{series}]
 $$
 In which using the Bayes rule it is equal to:
 $$
-\mathbb{P}[A_{first}|A_{serie}] = \frac{\mathbb{P}[A_{serie}|A_{first}] \cdot \mathbb{P}[A_{first}]}{\mathbb{P}[A_{serie}]}
+\mathbb{P}[A_{first}|A_{series}] = \frac{\mathbb{P}[A_{series}|A_{first}] \cdot \mathbb{P}[A_{first}]}{\mathbb{P}[A_{series}]}
 $$
-The only value that remain to calculate is \(\mathbb{P}[A_{serie}]\). In this case we have:
+The only value that remain to calculate is \(\mathbb{P}[A_{series}]\). In this case we have:
 
 * Team A wins three games in a row, with probability $p^3$
 * Team A wins three games and Team B wins one game, with probability $3p^3(1-p)$
@@ -298,7 +298,7 @@ $$
 Finally, 
 
 $$
-\mathbb{P}[A_{first}|A_{serie}] = \frac{\mathbb{P}[A_{serie}|A_{first}] \cdot \mathbb{P}[A_{first}]}{\mathbb{P}[A_{serie}]} = \frac{(p^2 + 2p^2(1-p) + 3p^2(1-p)^2)p}{p^3 + 3p^3(1-p) + \binom{4}{2}p^3(1-p)^2}
+\mathbb{P}[A_{first}|A_{series}] = \frac{\mathbb{P}[A_{series}|A_{first}] \cdot \mathbb{P}[A_{first}]}{\mathbb{P}[A_{series}]} = \frac{(p^2 + 2p^2(1-p) + 3p^2(1-p)^2)p}{p^3 + 3p^3(1-p) + \binom{4}{2}p^3(1-p)^2}
 $$
 
 # List 7 - Exercise 5.16
@@ -316,7 +316,7 @@ $$
 Then, we can model the number of years before a year with rainfall exceeding 50 inches with the variable $Y \sim Geom(p)$, where $p$ is the probability of success, in this case $p = 0.0062$. Finally, we can answer the question of the problem by calculating:
 
 $$
-P[Y > 10] = 1 - \text{pgeom(9, 0.0062) = 0.9397}
+\mathbb{P}[Y > 10] = 1 - \text{pgeom(9, 0.0062) = 0.9397}
 $$
 
 The assumption is that the annual rainfall is independent year to year.
@@ -684,5 +684,22 @@ $$
 Then, $B = \sum \limits_{i = 2}^r Y_i$ represents the number of types of insects that are caught before the first type 1 catch. Therefore, the mean number of $B$ is given by:
 
 $$
-E[B] = E[\sum \limits_{i = 2}^r Y_i] = \sum \limits_{i = 2}^r E[Y_i] = \sum \limits_{i = 2}^r P[Y_i = 1] = \sum \limits_{i = 2}^r \frac{P_i}{P_1 + P_i} 
+E[B] = E[\sum \limits_{i = 2}^r Y_i] = \sum \limits_{i = 2}^r E[Y_i] = \sum \limits_{i = 2}^r \mathbb{P}[Y_i = 1] = \sum \limits_{i = 2}^r \mathbb{P}[X_i \geq 1]
+$$
+, where $X_i$ denotes the number of insects of type $i$ before the first type 1 catch. From the point a) we have that $X \sim Geom(P_1)$ represents the number of insects that are caught before the first type 1 catch, and we can notice that $\{X_i \geq 1, X = x \}$ are disjoint and exhaustive events. Thus, so we can write $\mathbb{P}[X_i \geq 1]$ as follows:
+
+$$
+\mathbb{P}[X_i \geq 1] = \sum \limits_{x = 0}^ \infty \mathbb{P}[X_i \geq 1, X = x]  \\ = \sum \limits_{x = 0}^ \infty \mathbb{P}[X = x] - \mathbb{P}[X_i = 0, X = x] \\ = \sum \limits_{x = 0}^ \infty \mathbb{P}[X = x] - \sum \limits_{x = 0}^ \infty \mathbb{P}[X_i = 0, X = x] \\ = \sum \limits_{x = 0}^ \infty (1 - P_1)^x P_1 - \sum \limits_{x = 0}^ \infty (1 - P_1 - P_i)^xP_1
+$$
+
+Using the formula for a geometric series, we get
+
+$$
+\mathbb{P}[X_i \geq 1] = \frac{P_1}{P_1} - \frac{P_1}{P_1 + P_i} = \frac{P_i}{P_1 - P_i}
+$$
+
+Finally, we have that the mean number of types of insects that are caught before the first type 1 catch is given by 
+
+$$
+E[B] = \sum \limits_{i = 2}^r \mathbb{P}[X_i \geq 1] = \sum \limits_{i = 2}^r \frac{P_i}{P_1 - P_i}
 $$
