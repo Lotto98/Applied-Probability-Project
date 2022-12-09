@@ -3,14 +3,14 @@ title: "Team 9 Assignment Exercises"
 author: "Zuliani Riccardo 875532 - Aggio Nicola 880008 - Lotto Michele 875922"
 date: "14/11/2022"
 output:
+  html_document: 
+    toc: yes
   pdf_document:
     extra_dependencies:
     - amsmath
     - cases
     - mathtools
     - pdflscape
-  html_document: 
-    toc: yes
 ---
 
 ```{r setup, include=FALSE}

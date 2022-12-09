@@ -1197,12 +1197,16 @@ insects that are caught before the first type 1 catch, and we can notice
 that <span class="math inline">\(\{X_i \geq 1, X = x \}\)</span> are
 disjoint and exhaustive events. Thus, so we can write <span class="math inline">\(\mathbb{P}[X_i \geq 1]\)</span> as follows:</p>
 <p><span class="math display">\[
-\mathbb{P}[X_i \geq 1] = \sum \limits_{x = 0}^ \infty \mathbb{P}[X_i
-\geq 1, X = x]  \\ = \sum \limits_{x = 0}^ \infty \mathbb{P}[X = x] -
-\mathbb{P}[X_i = 0, X = x] \\ = \sum \limits_{x = 0}^ \infty
-\mathbb{P}[X = x] - \sum \limits_{x = 0}^ \infty \mathbb{P}[X_i = 0, X =
-x] \\ = \sum \limits_{x = 0}^ \infty (1 - P_1)^x P_1 - \sum \limits_{x =
+\begin{aligned}
+\mathbb{P}[X_i \geq 1] &amp;= \sum \limits_{x = 0}^ \infty
+\mathbb{P}[X_i \geq 1, X = x] \\
+&amp;= \sum \limits_{x = 0}^ \infty \mathbb{P}[X = x] - \mathbb{P}[X_i =
+0, X = x] \\
+&amp;= \sum \limits_{x = 0}^ \infty \mathbb{P}[X = x] - \sum \limits_{x
+= 0}^ \infty \mathbb{P}[X_i = 0, X = x] \\
+&amp;= \sum \limits_{x = 0}^ \infty (1 - P_1)^x P_1 - \sum \limits_{x =
 0}^ \infty (1 - P_1 - P_i)^xP_1
+\end{aligned}
 \]</span></p>
 <p>Using the formula for a geometric series, we get</p>
 <p><span class="math display">\[
