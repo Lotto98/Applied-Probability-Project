@@ -1,0 +1,34 @@
+---
+title: "PoissonProcess"
+author: "Zuliani Riccardo"
+date: "2/1/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+lambda= 0.8
+```
+
+
+```{r}
+set.seed(876)
+T=10
+n_jumps=lambda*T
+n = (0:n_jumps)
+t = cumsum(c(0,rexp(n_jumps,lambda)))
+while (max(t) <= T){
+  n = c(n, max(n)+1)
+  t = c(t, max(t) + rexp(1,lambda))
+}
+if (max(t) > T){
+  t[length(t)]=T
+  n[length(n)]=n[length(t)]-1
+}
+plot(t, n, type="s")
+```
+
