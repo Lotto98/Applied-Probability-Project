@@ -13,8 +13,9 @@ library("expm")
 Generator Matrix
 ```{r}
 dim <- 3
-#G <- matrix(c(-1/3, 1/6, 1/6, 1/8, -1/6, 1/24, 1/48, 1/16, -1/12),ncol=dim, byrow=T)
-G <- matrix(c(-4, 4, 0, 1, -7, 6, 6, 2, -8),ncol=dim, byrow=T)
+G <- matrix(c(-1/3, 1/6, 1/6, 1/8, -1/6, 1/24, 1/48, 1/16, -1/12),ncol=dim, byrow=T)
+#G <- matrix(c(-4, 4, 0, 1, -7, 6, 6, 2, -8),ncol=dim, byrow=T)
+#G <- matrix(c(-4, 2, 2, 1, -2, 1, 0.5, 1, -1.5),ncol=dim, byrow=T)
 G # Generator Matrix
 ```
 
@@ -41,26 +42,28 @@ p
 ```
 
 
-Conditional transition probability of discrete time chain $Z$ jumps
+Conditional transition probability of discrete time chain $Z$ jumps -> $\tilde{P_t}$
 ```{r}
-t <- 2
+jump <- 2
 states <- c(0,0,0)
-initial_state <- 3
+
+initial_state <- 1 # Modify this
+
 states[initial_state] <- 1
-P_t = states %*% (P_tilde %^% t)
-P_t
+P_tilde_t = states %*% (P_tilde %^% jump)
+P_tilde_t
 ```
 
 Transition probability of time t for the continuous time chain $P_t$
 ```{r}
-t <- 1
-expm(t * G)
+time <- 1
+P_t = expm(time * G)
 ```
 
 
 ```{r}
 set.seed(9878) # Fix random number generator (for reproducibility)
-T <- 10
+T <- 100 # Be careful on the time T, since if it is too slow it appears doing nothing
 n <- 0 # Counter for total number of jumps
 t <- 0 # Current time
 times <- 0 # Vector of jump times
@@ -71,20 +74,21 @@ t_x1 <- 0
 # Simulate the first holding time:
 t <- rexp(1, -G[x_t, x_t])
 
-t_x1 <- t_x1 + t
+t_x1 <- t_x1 + t # I want to see how much time I remain in state 1
 
 # Simulate sequentially until sopping rule:
 while (t <= T){
   n <- n+1
-  times <- c(times,t)
-  x_t <- sample(1:dim, 1, prob = P_tilde[x_t,]) # I'm, in x_t state and I sample one of the other in order to take the transition probability
+  times <- c(times,t) # We increase the array of jump time
+  x_t <- sample(1:dim, 1, prob = P_tilde[x_t,])
+  # I'm, in x_t state and I sample one of the other in order to take the transition probability
 
-  x <- c(x, x_t)
-  sim <- rexp(1, -G[x_t, x_t])
+  x <- c(x, x_t) # Increase the vector of visited states
+  sim <- rexp(1, -G[x_t, x_t]) # Simulate the holding time in that state
   if(x_t == 1){
     t_x1 <- t_x1 + sim
-  }
-  t <- t + sim
+  }   # Increase the time in which I'll jump in an other state with the holding time 
+  t <- t + sim 
 }
 
 # The last jump (after time T) was never added, but we need to add the final time (T=10) and corresponding process value, to complete the plot

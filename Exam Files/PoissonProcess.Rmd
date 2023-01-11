@@ -11,21 +11,27 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ```{r}
+# Lambda rate for the poisson process
 lambda= 0.8
 ```
 
 
 ```{r}
 set.seed(876)
-T=10
+T=10 # Maximum time of simulation
 n_jumps=lambda*T
 n = (0:n_jumps)
-t = cumsum(c(0,rexp(n_jumps,lambda)))
+t = cumsum(c(0,rexp(n_jumps,lambda))) # creation of the jumps time array
+
+# I want to simulate until time T
+
 while (max(t) <= T){
-  n = c(n, max(n)+1)
-  t = c(t, max(t) + rexp(1,lambda))
+  n = c(n, max(n)+1) # Increase the vector of counting arrivals
+  t = c(t, max(t) + rexp(1,lambda)) # Increase the vector of jumps time by one simulation
 }
-if (max(t) > T){
+
+# In case the last jump time is bigger than out wanted range up to T
+if (max(t) > T){ # I force both the time and the count
   t[length(t)]=T
   n[length(n)]=n[length(t)]-1
 }
