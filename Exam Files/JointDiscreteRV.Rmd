@@ -1,7 +1,7 @@
 ---
-title: "JointDiscreteRV"
-author: "Zuliani Riccardo"
-date: "23/1/2023"
+title: "Joint distributions"
+author: "Nicola Aggio"
+date: "2023-01-27"
 output: html_document
 ---
 
@@ -9,54 +9,66 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Joint distributions
+
 ```{r}
-dimy <- 5
-vec <- c(0.01,0.01,0.06,0.03,0.02,0.04,0.07,0.04,0.03,0.08,0.09,0.04,0.05,0.11,0.08,0.02,0.13,0.05,0.03,0.01)
-m <- matrix(vec, nrow = dimy, byrow = TRUE)
+n_row <- 3
+vec <- c(0, 0.06, 0.06, 0.1, 0.1, 0.1, 0.04, 0.04, 0.4, 0.1, 0, 0)
+m <- matrix(vec, nrow = n_row, byrow = TRUE)
 marginalX <- colSums(m) 
 marginalY <- rowSums(m)
 ```
 
+Check if the marginals sum up to 1:
+
+```{r}
+cumsum(marginalX)
+```
+
+```{r}
+cumsum(marginalY)
+```
+
+Computation of the mean of each variable.
+
 ```{r}
 meanX <- meanY <- 0
-
-for (col in 0:(ncol(m)-1))
-  meanX <- meanX + col*marginalX[col+1]
-
-for (row in 0:(nrow(m)-1))
-  meanY <- meanY + row*marginalY[row+1]
-
+for (col in 1:(ncol(m)))
+  meanX <- meanX + col*marginalX[col]
+for (row in 1:(nrow(m)))
+  meanY <- meanY + row*marginalY[row]
 print(meanX)
 print(meanY)
 ```
 
+Computation of the variance of each variable.
+
 ```{r}
 varX <- varY <- mX <- mY <- 0
-
-for (col in 1:(ncol(m)-1))
-  mX <- mX + (col**2)*marginalX[col+1]
+for (col in 1:(ncol(m)))
+  mX <- mX + (col**2)*marginalX[col]
 varX <- mX - (meanX**2)
-
-for (row in 1:(nrow(m)-1))
-  mY <- mY + (row**2)*marginalY[row+1]
+for (row in 1:(nrow(m)))
+  mY <- mY + (row**2)*marginalY[row]
 varY <- mY - (meanY**2)
-
 print(varX)
 print(varY)
 ```
+
+Computation of the covariance between X and Y.
 
 ```{r}
 covXY <- 0
 for (r in 1:nrow(m))   
   for (c in 1:ncol(m))
-    covXY <- covXY + ((r-1)*(c-1)*m[r, c])
+    covXY <- covXY + ((r)*(c)*m[r, c])
 covXY <- covXY - meanX*meanY
 covXY
 ```
 
+Computation of the correlation between X and Y.
 
 ```{r}
 corrXY <- covXY / (sqrt(varX)*sqrt(varY))
 corrXY
 ```
-
