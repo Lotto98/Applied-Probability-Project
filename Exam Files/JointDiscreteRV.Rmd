@@ -1,7 +1,7 @@
 ---
 title: "Joint distributions"
-author: "Nicola Aggio"
-date: "2023-01-27"
+author: "Riccardo Zuliani"
+date: "2023-01-23"
 output: html_document
 ---
 
@@ -12,11 +12,17 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Joint distributions
 
 ```{r}
-n_row <- 3
+#w_x <- c(0,1,2,3)
+#w_y <- c(0,1,2,3,4)
+#vec <- c(0.01,0.01,0.06,0.03,0.02,0.04,0.07,0.04,0.03,0.08,0.09,0.04,0.05,0.11,0.08,0.02,0.13,0.05,0.03,0.01)
+
+w_x <- 1:4 # Weight of X
+w_y <- 1:3 # Weight of Y
 vec <- c(0, 0.06, 0.06, 0.1, 0.1, 0.1, 0.04, 0.04, 0.4, 0.1, 0, 0)
-m <- matrix(vec, nrow = n_row, byrow = TRUE)
+m <- matrix(vec, nrow = length(w_y), byrow = TRUE)
 marginalX <- colSums(m) 
 marginalY <- rowSums(m)
+m
 ```
 
 Check if the marginals sum up to 1:
@@ -34,9 +40,9 @@ Computation of the mean of each variable.
 ```{r}
 meanX <- meanY <- 0
 for (col in 1:(ncol(m)))
-  meanX <- meanX + col*marginalX[col]
+  meanX <- meanX + w_x[col]*marginalX[col]
 for (row in 1:(nrow(m)))
-  meanY <- meanY + row*marginalY[row]
+  meanY <- meanY + w_y[row]*marginalY[row]
 print(meanX)
 print(meanY)
 ```
@@ -46,10 +52,10 @@ Computation of the variance of each variable.
 ```{r}
 varX <- varY <- mX <- mY <- 0
 for (col in 1:(ncol(m)))
-  mX <- mX + (col**2)*marginalX[col]
+  mX <- mX + (w_x[col]**2)*marginalX[col]
 varX <- mX - (meanX**2)
 for (row in 1:(nrow(m)))
-  mY <- mY + (row**2)*marginalY[row]
+  mY <- mY + (w_y[row]**2)*marginalY[row]
 varY <- mY - (meanY**2)
 print(varX)
 print(varY)
@@ -61,7 +67,7 @@ Computation of the covariance between X and Y.
 covXY <- 0
 for (r in 1:nrow(m))   
   for (c in 1:ncol(m))
-    covXY <- covXY + ((r)*(c)*m[r, c])
+    covXY <- covXY + ((w_y[r])*(w_x[c])*m[r, c])
 covXY <- covXY - meanX*meanY
 covXY
 ```
