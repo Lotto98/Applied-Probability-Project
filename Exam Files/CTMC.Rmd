@@ -95,7 +95,7 @@ Prob
 
 
 Conditional transition probability of time t for the continuous time chain $P_t$
-$P[X(t_2) = x_2 | X(t_1) = x_1]$
+$P[X(t + t_x) = x_2 | X(t) = x_1]$
 ```{r}
 time <- 1
 
