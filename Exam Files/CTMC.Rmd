@@ -13,8 +13,8 @@ library("expm")
 Knowing the Generator Matrix calculate the (conditional) transition probability matrix $\tilde{P_t}$
 ```{r}
 dim <- 3
-G <- matrix(c(-1/3, 1/6, 1/6, 1/8, -1/6, 1/24, 1/48, 1/16, -1/12),ncol=dim, byrow=T)
-#G <- matrix(c(-4, 4, 0, 1, -7, 6, 6, 2, -8),ncol=dim, byrow=T)
+#G <- matrix(c(-1/3, 1/6, 1/6, 1/8, -1/6, 1/24, 1/48, 1/16, -1/12),ncol=dim, byrow=T)
+G <- matrix(c(-4, 4, 0, 1, -7, 6, 6, 2, -8),ncol=dim, byrow=T)
 #G <- matrix(c(-4, 2, 2, 1, -2, 1, 0.5, 1, -1.5),ncol=dim, byrow=T)
 print(G) # Generator Matrix
 
@@ -72,21 +72,48 @@ p
 
 
 Conditional transition probability of discrete time chain $Z$ jumps -> $\tilde{P_t}$
+$P[Z(t_2) = x_2 | Z(t_1) = x_1]$
 ```{r}
 jump <- 2
-states <- c(0,0,0)
+init_s <- arr_s <- c(0,0,0)
 
-initial_state <- 1 # Modify this
+initial_state <- 3 # Modify this
+arrival_state <- 1 # Modify this
 
-states[initial_state] <- 1
-P_tilde_t = states %*% (P_tilde %^% jump)
-P_tilde_t
+init_s[initial_state] <- 1
+arr_s[arrival_state] <- 1
+
+#init_s <- c()  # In case we have a given distribution
+#arr_s <- c()   # In case we have a given distribution
+
+P_tilde_t <- P_tilde %^% jump
+
+Prob = arr_s %*% t(init_s %*% P_tilde_t)
+Prob
 ```
 
-Transition probability of time t for the continuous time chain $P_t$
+
+
+Conditional transition probability of time t for the continuous time chain $P_t$
+$P[X(t_2) = x_2 | X(t_1) = x_1]$
 ```{r}
 time <- 1
+
+init_s <- arr_s <- c(0,0,0)
+
+initial_state <- 3 # Modify this
+arrival_state <- 1 # Modify this
+
+#init_s[initial_state] <- 1
+arr_s[arrival_state] <- 1
+
+init_s <- p  # In case we have a given distribution
+#arr_s <- c()   # In case we have a given distribution
+
 P_t = expm(time * G)
+
+Prob = arr_s %*% t(init_s %*% P_t)
+Prob
 ```
 
 
